@@ -1,0 +1,83 @@
+//importacoes
+import React, {useState} from 'react';
+import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import { Container, Logo, Menu, Sidebar, MenuButton, CloseIcon, Overlay } from './styles';
+import  LogoImg  from '../../assets/logo.png'
+const Header = ()=>{
+const [menuOpen, setMenuOpen] = useState (false);
+
+// const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+// const toggleSideBar = () => {
+//   setIsSidebarOpen(!isSidebarOpen);
+// };
+
+  return (
+    <Container >
+    <Logo>
+        <Link to='/'><img src={ LogoImg } alt=""/></Link>
+    </Logo>
+
+    {/*Overlay para escurecer o fundo quando abre o menu hamburguer */}
+
+    {menuOpen && <Overlay  onClick={() => setMenuOpen(false)} />}
+
+
+
+    {/*botao do menu hambuguer */}
+    
+    {/* <MenuButton onClick={toggleSideBar}>
+      <span>&#9776;</span> icone do menu hamburguer */}
+    {/* </MenuButton> */}
+
+    {/*Sidebar que aparece quando o botao hamburguer e clicado */}
+    {/* {isSidebarOpen && (
+      <Sidebar>
+        <ul>
+          <li><Link to='/Login' onClick={() => setIsSidebarOpen(false)}>Login/Cadastrar</Link></li>
+          <li><Link to='/Sobre' onClick={() => setIsSidebarOpen(false)}>Sobre</Link></li>
+          <li><Link to='/Contatos' onClick={() => setIsSidebarOpen(false)}>Contatos</Link></li>
+          <li className="whatsapp"><a href="https://wa.me/5517996374860" target="_blank" rel="noopener noreferrer" onClick={() => setIsSidebarOpen(false)}><FaWhatsapp /> (17) 99637-4860</a></li>
+        </ul>
+      </Sidebar>
+    )} */}
+
+    
+    {/*icone do menu so aparece no mobile*/}
+
+    <MenuButton onClick={()=> setMenuOpen(!menuOpen)}>
+
+      {menuOpen ? <FaTimes />: <FaBars />}
+    </MenuButton>
+    
+    {/*Sidebar para Mobile */}
+
+    <Sidebar menuOpen ={menuOpen}>
+
+      <CloseIcon onClick={() => setMenuOpen(false)}>
+          <FaTimes />
+      </CloseIcon>
+    <ul>
+            <li><Link to='/Login'><span>Login/Cadastrar</span></Link></li>
+           <li className='whatsapp'><a href='https://wa.me/5517996374860' target='_blank' rel='noopener noreferrer'>
+            <span><FaWhatsapp></FaWhatsapp> (17) 99637-4860</span> </a> </li>           
+        </ul>
+    </Sidebar>
+
+    {/*Menu normal desktop */}
+      <Menu>
+
+        <ul>
+            <li><Link to='/Login'><span>Login/Cadastrar</span></Link></li>
+           <li className='whatsapp'>
+            <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer">
+              <FaWhatsapp /> (17) 99637-4860
+            </a>
+            </li>           
+        </ul>
+        </Menu>
+    </Container >
+  )
+}
+export default Header;
