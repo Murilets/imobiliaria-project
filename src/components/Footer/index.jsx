@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
-import {FaFacebook, FaInstagram, FaWhatsapp} from "react-icons/fa"
+import {FaFacebook, FaInstagram, FaWhatsapp, FaLocationArrow, FaClock } from "react-icons/fa"
 import  LogoImg  from '../../assets/logo.png'
 import { Container, Copy, Item  } from './styles';
-
 
 const Footer = () =>{
   return (
@@ -10,26 +9,46 @@ const Footer = () =>{
          <Container>
       <Item>
         <img src={LogoImg} alt='' />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at arcu iaculis, mollis libero eget, dapibus felis. Maecenas at enim eleifend, sagittis elit ut, placerat  Nullam ut mattis erat. </p>
-        <nav>
-            <li><span><FaFacebook  size={32}/></span></li>
-            <li><span><FaInstagram size={32}/></span></li>
-            <li><span><FaWhatsapp size={32}/></span></li>
-            
+    
+        <p style={{ right: '167px'}}>
+          <FaLocationArrow style={{marginRight: '7px', fontSize: '15px', color: '#1E90FF'}} />
+          Endereco rua fodase numero fodase
+        </p>
+        <p style={{top: '30px', right: '290px'}}>
+        <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'black'}}>
+          <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '15px'}} />
+          (17) 99637-4860
+          </a>
+        </p>
+       
+
+        <p style={{top: '60px', right:'195px'}}>
+          <FaClock style={{marginRight: '7px', fontSize: '15px', color: '#898b8b',}} />
+          Segunda a Sexta das 8h as 17h
+        </p>
+        <nav className='social-icons'>
+         
+            <li><span><FaFacebook style={{color: 'blue'}}  size={32}/></span></li>
+            <li><span><FaInstagram style={{background: 'linear-gradient(45deg, #c300ff, #ffb004)',
+            borderRadius:'10px',
+              fontSize: '40px'
+            }} size={32}/></span></li>
+            <hr className='social-line' />
         </nav>
       
       </Item>
 
-      <Item>
+      <Item className='services'>
         <h3>Nossos Servicos</h3>
         <ul>
             <li><span>Comprar</span></li>
             <li><span>Alugar</span></li>
             <li><span>Vender</span></li>
+            <li><span>Atendimento Personalizado</span></li>
         </ul>
       </Item>
 
-      <Item>
+      {/* <Item>
         <h3>Nossos Servicos</h3>
         <ul>
             <li><span>Comprar</span></li>
@@ -47,7 +66,7 @@ const Footer = () =>{
             <li><span>Vender</span></li>
         </ul>
       
-      </Item>
+      </Item> */}
 
       
     </Container>

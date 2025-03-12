@@ -19,7 +19,9 @@ export default createGlobalStyle`
   --lightblue:rgb(92, 181, 254)
   }
 
-  body {
+  body, html {
+    /* overflow-x: hidden;
+    width: 100%; */
   background-color: var (--primary)
   color var(--secondary);
   font-family: "Dosis", sans-serif;
