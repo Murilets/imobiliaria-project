@@ -20,8 +20,8 @@ export default createGlobalStyle`
   }
 
   body, html {
-    /* overflow-x: hidden;
-    width: 100%; */
+     overflow-x: hidden;
+    width: 100%; 
   background-color: var (--primary)
   color var(--secondary);
   font-family: "Dosis", sans-serif;

@@ -24,7 +24,10 @@ img{
 
 
 h3{
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
   ul{
     li{
@@ -43,6 +46,23 @@ h3{
       }
     }
   }
+  @media ${devices.mobileM}{
+    position: relative;
+
+    h3{
+      margin-left: 15px;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+    }
+    ul{
+      margin-right: 50px;
+      cursor: pointer;
+      font-size: 24px;
+      font-family: Arial, Helvetica, sans-serif;
+      
+    }
+  }
 
   /*responsavidade */
     @media ${devices.mobileM}{
@@ -50,7 +70,7 @@ h3{
      display: flex;
      justify-content: center;
      align-items: center;
-
+      
      img{
       visibility: hidden;
       position: relative;
@@ -65,19 +85,16 @@ h3{
       position: absolute;
       width: 75%;
       height: auto;
-      font-size: clamp(15px, 5vw, 15px);
-      text-align: left;
-      align-self: flex-start;
+      font-size: clamp(17px, 5vw, 15px);
       display: flex;
-      left: -10px;
-      bottom: 50px;
+      left: -137px;
+      bottom: 110px;
       text-align: left;
       word-wrap:break-word;
-      white-space: normal;
       max-width: 100%;
+      gap: 4px;
       font-family: Arial, Helvetica, sans-serif;
      }
-
       &.services{
         display: flex;
     flex-direction: column;
@@ -99,8 +116,9 @@ h3{
       .social-icons li{
         position: relative;
         width: auto;
-        right: 348px;
+        right: 80px;
         bottom: 110px;
+        cursor: pointer;
       }
 
       .social-line{
@@ -138,4 +156,47 @@ export const Copy  = styled.div`
       }
     }
 
-`
+
+
+    @media ${devices.mobileM}{
+      padding: 20px 20px;
+      width: 100%;
+      position: relative;
+      font-size: 11px;
+      gap: 5px;
+      display: flex;
+      align-items: center;
+      background-color: rgba(206, 201, 201, 0.33);
+
+      p{
+        position: relative;
+        height: 25px;
+        display: block;
+        gap: 20px;
+        flex-direction: column;
+        right: 18px;
+        bottom: 12px;
+        font-size: 10px;
+        color: rgb(9, 74, 253);
+        text-decoration-line: underline ;
+        cursor: pointer;
+      }
+
+      ul{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap ;
+        flex-direction: center;
+        justify-content: center;
+        font-size: 8.5px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        bottom: 10px;
+        gap: 10px;
+        text-decoration-line: underline;
+        color:  rgb(9, 74, 253);
+        
+      }
+    }
+`;

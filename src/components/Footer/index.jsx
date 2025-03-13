@@ -11,19 +11,19 @@ const Footer = () =>{
         <img src={LogoImg} alt='' />
     
         <p style={{ right: '167px'}}>
-          <FaLocationArrow style={{marginRight: '7px', fontSize: '15px', color: '#1E90FF'}} />
+          <FaLocationArrow style={{marginRight: '7px', fontSize: '23px', color: '#1E90FF'}} />
           Endereco rua fodase numero fodase
         </p>
-        <p style={{top: '30px', right: '290px'}}>
-        <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'black'}}>
-          <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '15px'}} />
+        <p  style={{top: '25px', right: '290px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}>
+        <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
+          <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '15px' }} />
           (17) 99637-4860
           </a>
         </p>
        
 
-        <p style={{top: '60px', right:'195px'}}>
-          <FaClock style={{marginRight: '7px', fontSize: '15px', color: '#898b8b',}} />
+        <p style={{bottom: '55px', left: '-137px'}}>
+          <FaClock style={{marginRight: '7px', fontSize: '15px', color: '#3c60ff',}} />
           Segunda a Sexta das 8h as 17h
         </p>
         <nav className='social-icons'>
@@ -45,6 +45,7 @@ const Footer = () =>{
             <li><span>Alugar</span></li>
             <li><span>Vender</span></li>
             <li><span>Atendimento Personalizado</span></li>
+            <li><span>Fale Conosco</span></li>
         </ul>
       </Item>
 
@@ -71,14 +72,14 @@ const Footer = () =>{
       
     </Container>
     <Copy>
-        <p> ©Copyright 2022 - Workside Tecnologia All Rights Reserved</p>
+        <p> ©Copyright 2023 - Bertelli Development  All Rights Reserved</p>
         <ul>
         <li><span>Sobre a Empresa</span></li>
             <li><span>Termos de Uso</span></li>
             <li><span>Politica de Privacidade</span></li>
             <li><span>Politica de Cookies</span></li>
         </ul>
-    </Copy>
+    </Copy>    
      </Fragment>
   )
 }
