@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { expandText, fadeInUp, slideIn, typingEffect } from "../../styles/animations";
+import { expandText, fadeInUp,  typingEffect } from "../../styles/animations";
 import Slider from "react-slick";
 import { devices } from "../../styles/responsive";
 

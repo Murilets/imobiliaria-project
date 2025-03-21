@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import {
   Container,
   Right,
@@ -9,14 +10,36 @@ import {
   ProfileImg,
   ProfileDescription,
   ProfileContact,
-  ProfileFormContact
+  ProfileFormContact,
 } from "./styles";
 
 import Input from "../../components/Input";
 import TextArea from "../../components/TextArea";
 import Button from "../../components/Button";
 import TopBanner from "../../components/TopBanner";
+
+
 const Imobi = () => { 
+  const { id } = useParams();  //pegando o id da URL 
+  const [imovel, setImovel] = useState(null);
+ console.log("ID do imovel", id);
+ useEffect(() => {
+  // Buscar dados do imóvel
+  fetch(`http://localhost:3220/imoveis/${id}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Imóvel recebido:", data);
+      setImovel(data); // Certifique-se de ter o estado 'imovel' configurado
+    })
+    .catch((error) =>
+      console.error("Erro ao buscar informações do imóvel:", error)
+    );
+}, [id]); // O efeito será executado sempre que o id mudar
+
+if (!imovel) {
+  return <p>Carregando...</p>; // Caso os dados ainda não tenham chegado
+}
+
   return (
     <Fragment>
       <TopBanner />
@@ -29,11 +52,9 @@ const Imobi = () => {
             />
           </Thumb>
           <Description>
-            <h2> Apartamento / Alugar</h2>
+            <h2>{imovel.type}</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              sagittis in elit et congue. In eros felis, accumsan vitae
-              fermentum.
+             {imovel.description}
             </p>
           </Description>
         </Left>

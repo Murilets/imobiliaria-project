@@ -67,7 +67,7 @@ export const DropdownWrapper = styled.div`
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
-gap: 10px;
+gap: -10px;
 
 @media ${devices.mobileM}{
   flex-direction: column; /*no mobile os dropdowns fica empiladfos */
@@ -77,7 +77,9 @@ gap: 10px;
 //estilizacao base para todos os dropdowns
 const DropdownBase = styled.div`
 width: 240px;
-margin: 15px;
+margin: 10px;
+align-items: center;
+justify-content: center;
 
 select{
 width: 100%;
@@ -96,8 +98,8 @@ border-radius: 5px;
     position: relative;
     display: flex;
     align-items: left;
-    width: 210px;
-    height: 50px;
+    width: 200px;
+    height: 47px;
   }
 
 

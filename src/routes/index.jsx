@@ -13,7 +13,7 @@ const RouterApp = () =>{
     <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/imovel" element={<Imobi />} />
+        <Route path="/imovel/:id" element={<Imobi />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="*" element={<Error />} />

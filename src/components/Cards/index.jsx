@@ -7,7 +7,7 @@ import card1 from "../../assets/imagenscard/card1.jpg";
 import card2 from "../../assets/imagenscard/card2.jpg";
 import card3 from "../../assets/imagenscard/card3.jpg";
 
-const Cards = () => {
+const Cards = ({ id,type, price, address}) => {
   const [currentImageIndex, SetCurrentImageIndex] = useState(0);
 
   const images  = [card1, card2, card3];
@@ -35,12 +35,12 @@ const Cards = () => {
       </Arrow>
       </Img>
       <Description>
-        <h4>Apartamento</h4>
+        <h4>{type}</h4>     {/*mostrando o tipo de imovel */}
         <Itens>
-            <span><FaMapMarkerAlt />Jardim do Bosque, Catanduva,SP</span>
-            <span>R$ 2.400,00 / mes</span>
+            <span><FaMapMarkerAlt />{address}</span>
+            <span>R$ {price}</span>
         </Itens>
-        <Link to='/imovel'> Detalhes <FaArrowAltCircleRight /></Link>
+        <Link to={`/imovel/${id}`}> Detalhes <FaArrowAltCircleRight /></Link>
        
       </Description>
     
