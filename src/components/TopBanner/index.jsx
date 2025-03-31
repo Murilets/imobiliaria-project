@@ -5,6 +5,7 @@ const TopBanner = ()=> {
 const { id } = useParams(); //pegando o id da url
 const [imovel, setImovel] = useState(null);
 console.log("ID do imovel teste", id)
+
 useEffect(() => {
   //buscar dados do imovel
   fetch (`http://localhost:3220/imoveis/${id}`)

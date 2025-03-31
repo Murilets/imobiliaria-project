@@ -38,10 +38,14 @@ margin-left: 0;
 `;
 export const Img = styled.div`
   width: 100%;
+  height: 330px;
+  overflow: hidden;
+  position: relative;
   color: black;
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
   }
 
 `;
@@ -83,13 +87,13 @@ export const Itens = styled.div`
 
 export const Arrow = styled.div`
 position: absolute;
-top: 50%;
+top: 60%;
 transform: translateY(-50%);
-background-color:   rgba(0, 0, 0, 0.5);
+background-color:   rgba(0, 0, 0, 0.73);
 color: white;
-border-radius: 50%;
-width: 30px;
-height: 30px;
+border-radius: 23%;
+width: 37px;
+height: 45px;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -99,12 +103,44 @@ z-index: 2;
 
 &.left{
   left: 10px;
+
+  @media ${devices.mobileM}{
+    left: -15px;
+    width: 60px;
+    height: 60px;
+  }
 }
 
 &.right{
-  right: 10px;
+right: 10px;
+
+  @media ${devices.mobileM}{
+    right: -15px;
+    width: 60px;
+    height: 60px;
+  }
 }
 &:hover {
-  background-color:  rgba(0, 0, 0, 0.8);
+  background-color:  rgba(0, 0, 0, 0.99);
 }
 `;
+
+
+export const FeatureItem = styled.div`
+  display: flex;          /* Alinha os ícones e números na horizontal */
+  gap: 20px;              /* Espaçamento entre o ícone e o número */
+  flex-wrap: wrap;        /* Permite quebra de linha se não couber em uma linha */
+  margin-top: 5px;  
+`;
+
+export const Icon = styled.span`
+font-size: 23px;
+color:rgb(104, 177, 255);
+`;
+
+export const Quantity = styled.span`
+position: relative;
+font-size: 18px;
+right: -6px;
+user-select: none;
+`

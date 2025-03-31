@@ -9,13 +9,15 @@ const Home = () => {
   const { elementRef, isVisible } = useScrollAnimation();
 
   const [imoveis, setImoveis] = useState([]); //variavel para armazenar os imoveis
+  const [filteredImoveis, setFilteredImoveis] = useState ([]);
 
   //buscar os imoveis do backend quando o componente for carregado
   useEffect(() => {
     fetch("http://localhost:3220/imoveis")
       .then((response) => response.json())
       .then((data) => {
-        setImoveis(data);    //guardando os imoveis no esttado
+        setImoveis(data);    //Armazena todos os imoveis
+        setFilteredImoveis(data); // inicia com todos os imoveis exibidos
         console.log("Imóveis recebidos: ", data);
       })
       .catch((error) => {
@@ -31,23 +33,45 @@ const Home = () => {
   return (
     <Fragment>
       <Banner />
-      <Search />
+      <Search  setFilteredImoveis={setFilteredImoveis}/>
+      {/* {filteredImoveis.map((imovel) => (
+         <Cards />
+      ))} */}
       <Header>
         <h2>Propriedades em Destaque</h2>
       </Header>
+
       <Wrapper ref={elementRef} className={isVisible ? "visible" : ""}>
         {/*Percorrendo o array de imoveis  */}
-
-        {imoveis.map((imovel) =>(    //o metodo map percorre o array de imoveis
-
-          <Cards 
-          key={imovel.id}   //identificador unico
-          id={imovel.id}
-          type={imovel.type}   ///ttipo do imovel
-          price={imovel.price}
-          address={imovel.address}
+        {filteredImoveis.length > 0 ? (
+          filteredImoveis.map((imovel) =>(
+            <Cards
+            key={imovel.id}
+            id={imovel.id}
+            type={imovel.type}
+            price={imovel.price}
+            street={imovel.street}
+            cep={imovel.cep}
+            city={imovel.city}
+            estado={imovel.estado}
+            features={imovel.features}
           />
-        ))}
+          ))
+        ) : filteredImoveis.length === 0 && (
+          imoveis.map((imovel) => (
+            <Cards
+            key={imovel.id}
+              id={imovel.id}
+              type={imovel.type}
+              price={imovel.price}
+              street={imovel.street}
+              cep={imovel.cep}
+              city={imovel.city}
+              estado={imovel.estado}
+              features={imovel.features}
+            />
+          ))
+        )}
         {/* {Card} */}
       </Wrapper>
     </Fragment>

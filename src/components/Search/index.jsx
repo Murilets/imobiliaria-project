@@ -1,27 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Dropdown, DropdownCity, DropdownMaxValue, DropdownMinValue, DropdownBanheiro,Dropdownquarto, DropdownWrapper } from './styles';
 import Button from '../../components/Button';
+import axios from 'axios';
+// import Cards from '../../components/Cards';
 
-const Search = () => {
+const Search = ({setFilteredImoveis})  => {
+  const [filters, setFilters] = useState({
+    // type: '',
+    // city: '',
+    // minPrice: '',
+    // maxPrice: '',
+    // bathroom: '',
+    // bedroom: ''
+  });
+
+
+   //esttado para armazenar os imoveis filtrados
+  //  const [filteredImoveis, setFilteredImoveis ] = useState([]);
+
+   const handleFilterChange = (e) =>{
+     const { name, value} = e.target;
+     setFilters({ ...filters, [name]: value});
+   };
+
+
+
+  const handleSearch = async () => {
+
+    console.log("filtro", filters);
+
+    const queryParams = Object.entries(filters)
+    .filter(([_, value]) => value)
+    .map(([key, value]) => `${key}=${value}`)
+    .join('&');
+
+    try{
+      const response = await axios.get(`http://localhost:3220/imoveis?${queryParams}`);
+      setFilteredImoveis(response.data); // Atualiza os imóveis filtrados na Home
+      console.log ("Resultados filtrados", response.data);
+      
+    } catch(error){
+      console.error('erro ao buscar imoveis', error);
+    }
+  };
   return (
     <Container>
       <h1>Procurando por um imovel em especifico?</h1>
       <p></p>
       <DropdownWrapper>
       <Dropdown>
-      <label htmlFor= "imoveis"></label>
-    <select id="imoveis" name='imoveis'>
-    <option value="tipo">Tipo de Imovel</option>
+      <select name='type' onChange={handleFilterChange}>
+    <option value="">Tipo de Imovel</option>
     <option value="apartamento">Apartamento</option>
   <option value="casa">Casa</option>
   <option value="sala_comercial">Sala Comercial</option>
   <option value="terreno">Terreno</option>
-    </select>
+  </select>
+
       </Dropdown>
       <DropdownCity>
-      <label htmlFor= "cidades"></label>
-    <select id="cidades" name='cidades'>
-    <option value="todas">Todas as Cidades</option>
+    <select name='city' onChange={handleFilterChange}>
+    <option value="">Todas as Cidades</option>
     <option value="Catanduva">Catanduva</option>
   <option value="Pindorama">Pindorama</option>
   <option value="Catigua">Catigua</option>
@@ -33,9 +72,9 @@ const Search = () => {
 
       <DropdownWrapper>
       <DropdownMaxValue>
-      <label htmlFor= "valormaximo"></label>
-    <select id="valormaximo" name='valormaximo'>
-    <option value="valormaximo">Valor Maximo</option>
+
+    <select name='maxPrice' onChange={handleFilterChange}>
+    <option value="">Valor Maximo</option>
     <option value="500">R$500</option>
   <option value="1000">R$1.000</option>
   <option value="2000">R$2.000</option>
@@ -46,9 +85,9 @@ const Search = () => {
 
       
       <DropdownMinValue>
-      <label htmlFor= "valorminimo"></label>
-    <select id="valorminimo" name='valorminimo'>
-    <option value="valorminimo">Valor Minimo</option>
+   
+    <select name='minPrice' onChange={handleFilterChange}>
+    <option value="">Valor Minimo</option>
     <option value="500">R$500</option>
   <option value="1000">R$1.000</option>
   <option value="2000">R$2.000</option>
@@ -60,9 +99,8 @@ const Search = () => {
 
       <DropdownWrapper>
       <DropdownBanheiro>
-      <label htmlFor= "banheiro"></label>
-    <select id="banheiro" name='banheiro'>
-    <option value="banheiro">Banheiros</option>
+    <select name='bathroom' onChange={handleFilterChange}>
+    <option value="">Banheiros</option>
     <option value="1">1 banheiro</option>
   <option value="2">2 banehiros</option>
   <option value="3">3 banheiros</option>
@@ -72,9 +110,8 @@ const Search = () => {
       </DropdownBanheiro>
 
       <Dropdownquarto>
-      <label htmlFor= "quarto"></label>
-    <select id="banheiro" name='quarto'>
-    <option value="quarto">Quartos</option>
+    <select name='bedroom' onChange={handleFilterChange}>
+    <option value="">Quartos</option>
     <option value="1">1 quarto</option>
   <option value="2">2 quartos</option>
   <option value="3">3 quartos</option>
@@ -83,17 +120,16 @@ const Search = () => {
     </select>
       </Dropdownquarto>
       </DropdownWrapper>
-      <Button
+      <Button onClick={handleSearch}
         width = "48%"
         display = "inline-block"  
         marginTop = "20px"
         left = "60px"
       >
         BUSCAR
+    
       </Button>
-
-
     </Container>
-  )
-}
+  );
+};
  export default Search;
