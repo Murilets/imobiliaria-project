@@ -118,8 +118,23 @@ export const Menu = styled.div`
         cursor: pointer;
        }
     }
+    p{
+      position: absolute;
+      width: 20%;
+      height: auto;
+      font-size: clamp(17px, 5vw, 15px);
+      display: flex;
+      left: 1200px;
+      background-color: rgba(187, 187, 187, 0.03);
+      color:  rgb(137, 137, 138);
+      bottom: 880px;
+      text-align: left;
+     
+      max-width: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+     }
 
-    li.whatsapp{
+    /* li.whatsapp{
       border: none;
 
       &:hover{
@@ -137,7 +152,7 @@ export const Menu = styled.div`
       color: white;
       background-color:rgb(64, 206, 32);
       z-index: 2;
-    }
+    } */
 
     //esconde o menu no mobile
     @media ${devices.mobileM}{

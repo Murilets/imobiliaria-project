@@ -17,17 +17,18 @@ export const Container = styled.div`
 
 export const Item = styled.div`
 position: relative;
+top: 60px;
+height: 220px;
 
 img{
-  width: 200px;
+  width: 230px;
 }
 
 
-h3{
-  margin-bottom: 15px;
+p{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 10px;
+  margin-right: 40px;
 }
   ul{
     li{
@@ -138,14 +139,22 @@ export const Copy  = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 150px;
+    padding: 40px 125px;
+    size: 30px;
     border-top: 3px solid rgb(0, 0, 0);
+
+    .endereco{
+      display: flex;
+      position: absolute;
+      size: 50px;
+    }
     ul{
       display: flex;
       align-items: center;
+      right: 30px;
       li{
         span{
-          margin-left: 15px;
+          margin-left: 20px;
           cursor: pointer;
           transition: color 0.3;
         }
@@ -171,10 +180,10 @@ export const Copy  = styled.div`
       p{
         position: relative;
         height: 25px;
-        display: block;
+        display: flex;
         gap: 20px;
-        flex-direction: column;
-        right: 18px;
+        flex-direction: center;
+        right: 20px;
         bottom: 12px;
         font-size: 10px;
         color: rgb(9, 74, 253);

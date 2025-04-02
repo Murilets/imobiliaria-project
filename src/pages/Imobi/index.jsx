@@ -11,34 +11,67 @@ import {
   ProfileDescription,
   ProfileContact,
   ProfileFormContact,
+  Arrow,
 } from "./styles";
-
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import Input from "../../components/Input";
 import TextArea from "../../components/TextArea";
 import Button from "../../components/Button";
 import TopBanner from "../../components/TopBanner";
 
 
-const Imobi = () => { 
-  const { id } = useParams();  //pegando o id da URL 
-  const [imovel, setImovel] = useState(null);
- console.log("ID do imovel", id);
- useEffect(() => {
-  // Buscar dados do imóvel
-  fetch(`http://localhost:3220/imoveis/${id}`)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Imóvel recebido:", data);
-      setImovel(data); // Certifique-se de ter o estado 'imovel' configurado
-    })
-    .catch((error) =>
-      console.error("Erro ao buscar informações do imóvel:", error)
-    );
-}, [id]); // O efeito será executado sempre que o id mudar
+const Imobi = () => {
 
-if (!imovel) {
-  return <p>Carregando...</p>; // Caso os dados ainda não tenham chegado
-}
+  //armazena os inputs
+const [nome, setNome] = useState("");
+const [email, setEmail] = useState("");
+const [mensagem, setMensagem] = useState(
+  "Olá, estou interessado neste imóvel!"
+);
+const handleEnviarWhatsApp = () => {
+  const numeroProprietario = "5517997618886"; //numero do proprietario do imovel
+
+  //mensagem pre definida
+  const msgDefinida = `Nome : ${nome}%0AEmail: ${email}%0AMensagem:  ${mensagem}`;
+
+  //criando a URL do wahts com a mensagem definida
+  const urlWhatsApp = `https://wa.me/${numeroProprietario}?text=${msgDefinida}`
+
+  //Abir a URL no whats
+  window.open (urlWhatsApp, "_blank");
+};
+
+
+
+  const { id } = useParams(); //pegando o id da URL
+  const [imovel, setImovel] = useState(null);
+  const [imagemAtual, setImagemAtual] = useState(0);
+
+  console.log("ID do imovel", id);
+  useEffect(() => {
+    // Buscar dados do imóvel
+    fetch(`http://localhost:3220/imoveis/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Imóvel recebido:", data);
+        setImovel(data); // Certifique-se de ter o estado 'imovel' configurado
+      })
+      .catch((error) =>
+        console.error("Erro ao buscar informações do imóvel:", error)
+      );
+  }, [id]); // O efeito será executado sempre que o id mudar
+
+  if (!imovel) {
+    return <p>Carregando...</p>; // Caso os dados ainda não tenham chegado
+  }
+  const proximaImagem = () => {
+    setImagemAtual ((prev) => prev + 1 < Object.keys(imovel.photos[0]).length ? prev +1 : 0);
+  };
+
+  const imagemAnterior = () => {
+    setImagemAtual((prev) =>
+     prev -1 >= 0 ? prev - 1 : Object.keys(imovel.photos[0]).length -1);
+  };
 
   return (
     <Fragment>
@@ -46,43 +79,53 @@ if (!imovel) {
       <Container>
         <Left>
           <Thumb>
-            <img
-              src="https://images.unsplash.com/photo-1512916194211-3f2b7f5f7de3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            />
+            {imovel.photos && imovel.photos.length > 0 && (
+              <> 
+              
+              <Arrow  className="Left" onClick={imagemAnterior}>
+                <FaArrowAltCircleLeft />
+                </Arrow>
+              <img src={Object.values(imovel.photos[0])[imagemAtual]} alt={`Imagem ${imagemAtual +1}`} 
+              />
+               <Arrow  className="Right" onClick={proximaImagem}>
+                <FaArrowAltCircleRight />
+               </Arrow>
+              </>
+            )}
           </Thumb>
           <Description>
             <h2>{imovel.type}</h2>
-            <p>
-             {imovel.description}
-            </p>
+            <p>{imovel.description}</p>
           </Description>
         </Left>
         <Right>
           <Profile>
             <ProfileImg>
-              <img src= "https://i.pinimg.com/736x/21/9e/ae/219eaea67aafa864db091919ce3f5d82.jpg" alt=" " />
+              <img
+                src="https://i.pinimg.com/736x/21/9e/ae/219eaea67aafa864db091919ce3f5d82.jpg"
+                alt=" "
+              />
             </ProfileImg>
             <ProfileDescription>
               <h3>Ronei de Almeida Vilela</h3>
               <p>Descricao do usuario</p>
-             
             </ProfileDescription>
           </Profile>
           <ProfileContact>
-          <h3>Informacoes para contato</h3>
-              <p>(11) 111-1111</p>
-              <p>teste@teste.com</p>
+            <h3>Informacoes para contato</h3>
+            <p>(11) 111-1111</p>
+            <p>teste@teste.com</p>
           </ProfileContact>
           <ProfileFormContact>
             <h3> Contate o anunciante:</h3>
             <form>
-              <Input type="text" placeholder="Nome:"/>
-              <Input type="text" placeholder="E-mail:"/>
-              <TextArea  placeholder="Mensagem:"/>
-              <Button> Enviar mensagem</Button>
-            </form>
+              <Input type="text" placeholder="Nome:" value={nome} onChange={(e) => setNome(e.target.value)} />
 
+              <Input type="text" placeholder="E-mail:"  value={email} onChange={(e) => setEmail(e.target.value)}/>
+
+              <TextArea placeholder="Mensagem:" value={mensagem} onChange={(e) => setMensagem(e.target.value)} />
+              <Button onClick={handleEnviarWhatsApp}> Enviar mensagem</Button>
+            </form>
           </ProfileFormContact>
         </Right>
       </Container>

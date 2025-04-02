@@ -3,7 +3,9 @@ import { Header, Wrapper } from "./styles";
 import Banner from "../../components/Banner";
 import Search from "../../components/Search";
 import Cards from "../../components/Cards";
+import WhatsAppButton from "../../components/WhatsAppButton";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const { elementRef, isVisible } = useScrollAnimation();
@@ -37,6 +39,7 @@ const Home = () => {
       {/* {filteredImoveis.map((imovel) => (
          <Cards />
       ))} */}
+      <WhatsAppButton />
       <Header>
         <h2>Propriedades em Destaque</h2>
       </Header>

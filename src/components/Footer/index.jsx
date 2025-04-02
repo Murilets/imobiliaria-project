@@ -11,42 +11,42 @@ const Footer = () =>{
         <img src={LogoImg} alt='' />
     
         <p style={{ right: '167px'}}>
-          <FaLocationArrow style={{marginRight: '7px', fontSize: '23px', color: '#1E90FF'}} />
-          Endereco rua fodase numero fodase
+          <FaLocationArrow style={{marginRight: '10px', fontSize: '27px', color: '#1E90FF'}} />
+          R. Vinte e Um de Abril, 363 - Centro, Catanduva - SP, 15801-170, Brasil
         </p>
-        <p  style={{top: '25px', right: '290px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}>
+        <p  style={{top: '20px', right: '290px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}>
         <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
-          <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '15px' }} />
+          <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '20px' }} />
           (17) 99637-4860
           </a>
         </p>
        
 
-        <p style={{bottom: '55px', left: '-137px'}}>
-          <FaClock style={{marginRight: '7px', fontSize: '15px', color: '#3c60ff',}} />
+        <p style={{bottom: '50px', left: '-137px'}}>
+          <FaClock style={{marginRight: '7px', fontSize: '20px', color: '#4079f3',}} />
           Segunda a Sexta das 8h as 17h
         </p>
         <nav className='social-icons'>
          
-            <li><span><FaFacebook style={{color: 'blue'}}  size={32}/></span></li>
-            <li><span><FaInstagram style={{background: 'linear-gradient(45deg, #c300ff, #ffb004)',
+            {/* <li><span><FaFacebook style={{color: 'blue'}}  size={32}/></span></li> */}
+            {/* <li><span><FaInstagram style={{background: 'linear-gradient(45deg, #c300ff, #ffb004)',
             borderRadius:'10px',
               fontSize: '40px'
-            }} size={32}/></span></li>
-            <hr className='social-line' />
+            }} size={32}/></span></li> */}
+            {/* <hr className='social-line' /> */}
         </nav>
       
       </Item>
 
       <Item className='services'>
-        <h3>Nossos Servicos</h3>
+        {/* <h3>Nossos Servicos</h3>
         <ul>
             <li><span>Comprar</span></li>
             <li><span>Alugar</span></li>
             <li><span>Vender</span></li>
             <li><span>Atendimento Personalizado</span></li>
             <li><span>Fale Conosco</span></li>
-        </ul>
+        </ul> */}
       </Item>
 
       {/* <Item>

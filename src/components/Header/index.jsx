@@ -1,6 +1,6 @@
 //importacoes
 import React, {useState} from 'react';
-import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
+import { FaWhatsapp, FaBars, FaTimes, FaLocationArrow, FaFacebook, FaInstagram } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import { Container, Logo, Menu, Sidebar, MenuButton, CloseIcon, Overlay } from './styles';
 import  LogoImg  from '../../assets/logo.png'
@@ -69,12 +69,23 @@ const [menuOpen, setMenuOpen] = useState (false);
       <Menu>
 
         <ul>
-            <li><Link to='/Login'><span>Login/Cadastrar</span></Link></li>
-           <li className='whatsapp'>
+            {/* <li><Link to='/Login'><span>Login/Cadastrar</span></Link></li> */}
+           {/* <li className='whatsapp'>
             <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer">
               <FaWhatsapp /> (17) 99637-4860
             </a>
-            </li>           
+            </li>            */}
+
+
+                    <p style={{ right: '167px'}}>
+                      R. Vinte e Um de Abril, 363 - Centro, Catanduva - SP, 15801-170, Brasil
+                    </p>
+                    <p  style={{top: '10px', right: '220px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}>
+                    {/* <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
+                      <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '15px' }} />
+                      (17) 99637-4860
+                      </a> */}
+                    </p>
         </ul>
         </Menu>
     </Container >

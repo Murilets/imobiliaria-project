@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { devices } from "../../styles/responsive";
 export const Container = styled.div`
   padding: 20px 150px;
   display: flex;
@@ -70,6 +70,43 @@ export const ProfileFormContact = styled.div`
      display: flex;
      flex-direction: column;
     }
+`;
+export const Arrow = styled.div`
+position: absolute;
+top: 80%;
+transform: translateY(-50%);
+background-color:   rgba(0, 0, 0, 0.73);
+color: white;
+border-radius: 23%;
+width: 61px;
+height: 78px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
 
-  
+z-index: 2;
+
+&.Left{
+  left: 115px;
+
+  @media ${devices.mobileM}{
+    left: -15px;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+&.Right{
+right: 602px;
+
+  @media ${devices.mobileM}{
+    right: -15px;
+    width: 60px;
+    height: 60px;
+  }
+}
+&:hover {
+  background-color:  rgba(0, 0, 0, 0.99);
+}
 `;
