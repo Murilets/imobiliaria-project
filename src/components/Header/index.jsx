@@ -80,6 +80,7 @@ const [menuOpen, setMenuOpen] = useState (false);
                     <p style={{ right: '167px'}}>
                       R. Vinte e Um de Abril, 363 - Centro, Catanduva - SP, 15801-170, Brasil
                     </p>
+        
                     <p  style={{top: '10px', right: '220px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}>
                     {/* <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
                       <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '15px' }} />

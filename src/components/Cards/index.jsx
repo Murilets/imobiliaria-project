@@ -66,7 +66,7 @@ const getFeatureIcon = (type) => {
               <FaChevronLeft />
             </Arrow>
             <Arrow className="right" onClick={handleNextImage}>
-              <FaChevronLeft/>
+              <FaChevronRight/>
             </Arrow>
           </>
         ) : (

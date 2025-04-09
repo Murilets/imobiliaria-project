@@ -18,7 +18,7 @@ import Input from "../../components/Input";
 import TextArea from "../../components/TextArea";
 import Button from "../../components/Button";
 import TopBanner from "../../components/TopBanner";
-
+import WhatsAppButton from "../../components/WhatsAppButton"
 
 const Imobi = () => {
 
@@ -28,6 +28,12 @@ const [email, setEmail] = useState("");
 const [mensagem, setMensagem] = useState(
   "Olá, estou interessado neste imóvel!"
 );
+useEffect (() => {
+  const urlAtual = window.location.href;
+  const mensagemPronta = `Olá, estou interessado neste imóvel! Poderia me enviar mais informações?\n\n ${urlAtual}`
+  setMensagem(mensagemPronta);
+  
+}, [])
 const handleEnviarWhatsApp = () => {
   const numeroProprietario = "5517997618886"; //numero do proprietario do imovel
 
@@ -73,9 +79,16 @@ const handleEnviarWhatsApp = () => {
      prev -1 >= 0 ? prev - 1 : Object.keys(imovel.photos[0]).length -1);
   };
 
+  const getFeature = (type) => {
+    switch(type){
+      case "GARAGE":
+        return "garagem"
+    }
+  }
+
   return (
     <Fragment>
-      <TopBanner />
+      {/* <TopBanner /> */}
       <Container>
         <Left>
           <Thumb>
@@ -93,31 +106,48 @@ const handleEnviarWhatsApp = () => {
               </>
             )}
           </Thumb>
+    
           <Description>
-            <h2>{imovel.type}</h2>
-            <p>{imovel.description}</p>
+          <hr></hr>
+            <h2>{imovel.type} para Venda,  {imovel.city} / {imovel.estado}</h2>
+            <span className="price"> R$ {imovel.price}</span>
+            <span className="street">{ imovel.street} |</span>
+            <span className="linebetween">a</span>
+            <span className="linebetween2">a</span>
+            <span className="features">
+              {imovel.features.map((feature, index) =>(
+                <span key={index}>
+                  {feature.quantity} {feature.description}
+                  {index < imovel.features.length - 1 ? " |" : ""}
+                </span>
+              ))}
+           </span>
+
+           <span className="descricao">DESCRIÇÃO DO IMÓVEL</span> 
+           <p>{imovel.description}</p>
+
           </Description>
         </Left>
         <Right>
           <Profile>
-            <ProfileImg>
+            {/* <ProfileImg>
               <img
                 src="https://i.pinimg.com/736x/21/9e/ae/219eaea67aafa864db091919ce3f5d82.jpg"
                 alt=" "
               />
-            </ProfileImg>
+            </ProfileImg> */}
             <ProfileDescription>
-              <h3>Ronei de Almeida Vilela</h3>
-              <p>Descricao do usuario</p>
+              {/* <h3>RONEI VILELA</h3> */}
+              {/* <p>Descricao do usuario</p> */}
             </ProfileDescription>
           </Profile>
           <ProfileContact>
-            <h3>Informacoes para contato</h3>
-            <p>(11) 111-1111</p>
-            <p>teste@teste.com</p>
+            <h3>FALE AGORA CONOSCO</h3>
+            {/* <p>(11) 111-1111</p> */}
+            {/* <p>teste@teste.com</p> */}
           </ProfileContact>
           <ProfileFormContact>
-            <h3> Contate o anunciante:</h3>
+            {/* <h3> Contate o anunciante:</h3> */}
             <form>
               <Input type="text" placeholder="Nome:" value={nome} onChange={(e) => setNome(e.target.value)} />
 
@@ -128,6 +158,7 @@ const handleEnviarWhatsApp = () => {
             </form>
           </ProfileFormContact>
         </Right>
+        <WhatsAppButton />
       </Container>
     </Fragment>
   );

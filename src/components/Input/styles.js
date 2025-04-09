@@ -10,7 +10,7 @@ letter-spacing: 0.1px;
 font-size: 0.938rem;
 margin-bottom: 10px;
 outline: none;
-border-color: var(--tertiary);
+border-color: var(--blue);
 border-radius: 7px;
 resize: none;
 `

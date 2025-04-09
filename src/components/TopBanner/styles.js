@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import backgroundImage from '../../assets/interiorcasa.jpg';
 export const Container = styled.div`
   padding: 50px 150px;
   position: relative;
   background-size: cover;
   background-position: center;
-  background-image: url(${backgroundImage});
+  background-image: url(https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
   :before{
    background-color: rgba(192, 190, 190, 0.04);
    content: '';
