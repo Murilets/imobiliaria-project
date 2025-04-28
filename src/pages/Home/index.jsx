@@ -5,7 +5,7 @@ import Search from "../../components/Search";
 import Cards from "../../components/Cards";
 import WhatsAppButton from "../../components/WhatsAppButton";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
-import { useNavigate } from "react-router-dom";
+import { CardsWrapper } from "../../components/Cards/styles";
 
 const Home = () => {
   const { elementRef, isVisible } = useScrollAnimation();
@@ -44,39 +44,21 @@ const Home = () => {
         <h2>Propriedades em Destaque</h2>
       </Header>
 
-      <Wrapper ref={elementRef} className={isVisible ? "visible" : ""}>
-        {/*Percorrendo o array de imoveis  */}
-        {filteredImoveis.length > 0 ? (
-          filteredImoveis.map((imovel) =>(
-            <Cards
-            key={imovel.id}
-            id={imovel.id}
-            type={imovel.type}
-            price={imovel.price}
-            street={imovel.street}
-            cep={imovel.cep}
-            city={imovel.city}
-            estado={imovel.estado}
-            features={imovel.features}
-          />
-          ))
-        ) : filteredImoveis.length === 0 && (
-          imoveis.map((imovel) => (
-            <Cards
-            key={imovel.id}
-              id={imovel.id}
-              type={imovel.type}
-              price={imovel.price}
-              street={imovel.street}
-              cep={imovel.cep}
-              city={imovel.city}
-              estado={imovel.estado}
-              features={imovel.features}
-            />
-          ))
-        )}
-        {/* {Card} */}
-      </Wrapper>
+      <CardsWrapper isTwoCards={(filteredImoveis.length || imoveis.length) === 2}>
+  {(filteredImoveis.length > 0 ? filteredImoveis : imoveis).map((imovel) => (
+    <Cards
+      key={imovel.id}
+      id={imovel.id}
+      type={imovel.type}
+      price={imovel.price}
+      street={imovel.street}
+      cep={imovel.cep}
+      city={imovel.city}
+      estado={imovel.estado}
+      features={imovel.features}
+    />
+  ))}
+</CardsWrapper>
     </Fragment>
   );
 };

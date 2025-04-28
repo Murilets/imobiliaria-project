@@ -69,8 +69,12 @@ p{
     @media ${devices.mobileM}{
      position: relative;
      display: flex;
+     width: 400px;
      justify-content: center;
      align-items: center;
+     left: 10px;
+     padding: 20px 20px;
+     
       
      img{
       visibility: hidden;
@@ -84,16 +88,16 @@ p{
     
      p{
       position: absolute;
-      width: 75%;
+      width: 95%;
       height: auto;
-      font-size: clamp(17px, 5vw, 15px);
+      font-size: 20px;
       display: flex;
-      left: -137px;
-      bottom: 110px;
+      right: 150px;
+      bottom: 200px;
       text-align: left;
       word-wrap:break-word;
       max-width: 100%;
-      gap: 4px;
+      gap: 2px;
       font-family: Arial, Helvetica, sans-serif;
      }
       &.services{
@@ -170,6 +174,7 @@ export const Copy  = styled.div`
     @media ${devices.mobileM}{
       padding: 20px 20px;
       width: 100%;
+      height: 100px;
       position: relative;
       font-size: 11px;
       gap: 5px;

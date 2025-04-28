@@ -2,14 +2,15 @@ import styled from "styled-components";
 import { devices } from "../../styles/responsive";
 
 export const Container = styled.div`
-  width: 24%;
-  margin-bottom: 12px;
-  background-color: var(--white);
-  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
+position: relative;
+width: 25%;
+margin-bottom: 12px;
+margin-left: 0;
+background-color: var(--white);
+box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
 border-radius: 8px;
 overflow: hidden;
 transition: transform 0.3s, box-shadown 0.3s;
-position: relative;
 color: black;
 
 &:hover {
@@ -19,6 +20,7 @@ color: black;
 
 @media ${devices.laptop} {
   width: 45%;
+  margin-left: 50px;
 }
 
 @media ${devices.tablet}{
@@ -29,16 +31,23 @@ color: black;
 @media  ${devices.mobileL}{
 width: 100%;
 padding: 10px;
-height: auto;
 margin-left: 0;
 }
+@media ${devices.mobileM}{
+width: 100%;
+}
+`;
+export const CardsWrapper = styled.div`
+   display: flex;
+  flex-wrap: wrap;
 
-
-
+  justify-content: ${({ isTwoCards }) => (isTwoCards ? "left" : "flex-start")};
+  gap: 3rem;
+  padding: 2rem;
 `;
 export const Img = styled.div`
   width: 100%;
-  height: 330px;
+  height: 350px;
   overflow: hidden;
   position: relative;
   color: black;
@@ -46,6 +55,7 @@ export const Img = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    
   }
 
 `;
@@ -105,9 +115,11 @@ z-index: 2;
   left: 10px;
 
   @media ${devices.mobileM}{
-    left: -15px;
-    width: 60px;
+    position: absolute;
+    left: -20px;
+    width: 65px;
     height: 60px;
+    z-index: 3;
   }
 }
 

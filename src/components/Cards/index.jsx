@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, Description, Img, Itens, Arrow, FeatureItem, Icon, Quantity } from "./styles";
+import { Container, Description, Img, Itens, Arrow, FeatureItem, Icon, Quantity, CardsWrapper } from "./styles";
 import {
   FaArrowAltCircleRight,
   FaMapMarkerAlt,
@@ -57,6 +57,7 @@ const getFeatureIcon = (type) => {
 };
 
   return (
+   
     <Container>
       <Img>
         {photos.length > 0 ? (
@@ -99,6 +100,7 @@ const getFeatureIcon = (type) => {
         </Link>
       </Description>
     </Container>
+    
   );
 };
 export default Cards;

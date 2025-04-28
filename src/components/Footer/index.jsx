@@ -10,20 +10,20 @@ const Footer = () =>{
       <Item>
         <img src={LogoImg} alt='' />
     
-        <p style={{ right: '167px'}}>
-          <FaLocationArrow style={{marginRight: '10px', fontSize: '27px', color: '#1E90FF'}} />
+        <p style={{ top: '20px', right: '140px'}}>
+          <FaLocationArrow style={{marginRight: '10px', fontSize: '40px', color: '#1E90FF'}} />
           R. Vinte e Um de Abril, 363 - Centro, Catanduva - SP, 15801-170, Brasil
         </p>
-        <p  style={{top: '20px', right: '290px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}>
+        {/* <p  style={{top: '-80px', right: '290px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}>
         <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
           <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '20px' }} />
           (17) 99637-4860
           </a>
-        </p>
+        </p> */}
        
 
-        <p style={{bottom: '50px', left: '-137px'}}>
-          <FaClock style={{marginRight: '7px', fontSize: '20px', color: '#4079f3',}} />
+        <p style={{top: '-50px', left: '-160px'}}>
+          <FaClock style={{marginRight: '7px', fontSize: '25px', color: '#4079f3',}} />
           Segunda a Sexta das 8h as 17h
         </p>
         <nav className='social-icons'>

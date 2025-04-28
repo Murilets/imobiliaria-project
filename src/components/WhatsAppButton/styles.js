@@ -24,6 +24,7 @@ border: none;
 
 
 @media ${devices.mobileM}{
+    display: none;
     width: 62px;
     height: 64px;
 }
@@ -52,6 +53,7 @@ export const Notifications = styled.span`
 
 
       @media ${devices.mobileM}{
+        display: none;
          height: 24px;
          width: 20px;
          right: 40px;
