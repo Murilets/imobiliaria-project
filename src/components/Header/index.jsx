@@ -1,38 +1,54 @@
 //importacoes
-import React, {useState} from 'react';
-import { FaWhatsapp, FaBars, FaTimes, FaLocationArrow, FaFacebook, FaInstagram } from 'react-icons/fa';
+import React, { useState } from "react";
+import {
+  FaWhatsapp,
+  FaBars,
+  FaTimes,
+  FaLocationArrow,
+  FaFacebook,
+  FaInstagram,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Container, Logo, Menu, Sidebar, MenuButton, CloseIcon, Overlay } from './styles';
-import  LogoImg  from '../../assets/logo.png'
-const Header = ()=>{
-const [menuOpen, setMenuOpen] = useState (false);
+import {
+  Container,
+  Logo,
+  Menu,
+  Sidebar,
+  MenuButton,
+  CloseIcon,
+  Overlay,
+} from "./styles";
+import LogoImg from "../../assets/logo.png";
+const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-// const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-// const toggleSideBar = () => {
-//   setIsSidebarOpen(!isSidebarOpen);
-// };
+  // const toggleSideBar = () => {
+  //   setIsSidebarOpen(!isSidebarOpen);
+  // };
 
   return (
-    <Container >
-    <Logo>
-        <Link to='/'><img src={ LogoImg } alt=""/></Link>
-    </Logo>
-
-    {/*Overlay para escurecer o fundo quando abre o menu hamburguer */}
-
-    {menuOpen && <Overlay  onClick={() => setMenuOpen(false)} />}
-
-
-
-    {/*botao do menu hambuguer */}
+    <Container>
+      <Logo>
+        <Link to="/">
+          <img src={LogoImg} alt="" />
+        </Link>
     
-    {/* <MenuButton onClick={toggleSideBar}>
-      <span>&#9776;</span> icone do menu hamburguer */}
-    {/* </MenuButton> */}
+      </Logo>
 
-    {/*Sidebar que aparece quando o botao hamburguer e clicado */}
-    {/* {isSidebarOpen && (
+      {/*Overlay para escurecer o fundo quando abre o menu hamburguer */}
+
+      {menuOpen && <Overlay onClick={() => setMenuOpen(false)} />}
+
+      {/*botao do menu hambuguer */}
+
+      {/* <MenuButton onClick={toggleSideBar}>
+      <span>&#9776;</span> icone do menu hamburguer */}
+      {/* </MenuButton> */}
+
+      {/*Sidebar que aparece quando o botao hamburguer e clicado */}
+      {/* {isSidebarOpen && (
       <Sidebar>
         <ul>
           <li><Link to='/Login' onClick={() => setIsSidebarOpen(false)}>Login/Cadastrar</Link></li>
@@ -43,53 +59,62 @@ const [menuOpen, setMenuOpen] = useState (false);
       </Sidebar>
     )} */}
 
-    
-    {/*icone do menu so aparece no mobile*/}
+      {/*icone do menu so aparece no mobile*/}
 
-    <MenuButton onClick={()=> setMenuOpen(!menuOpen)}>
+      <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </MenuButton>
 
-      {menuOpen ? <FaTimes />: <FaBars />}
-    </MenuButton>
-    
-    {/*Sidebar para Mobile */}
+      {/*Sidebar para Mobile */}
 
-    <Sidebar menuOpen ={menuOpen}>
-
-      <CloseIcon onClick={() => setMenuOpen(false)}>
+      <Sidebar menuOpen={menuOpen}>
+        <CloseIcon onClick={() => setMenuOpen(false)}>
           <FaTimes />
-      </CloseIcon>
-    <ul>
-            <li><Link to='/Login'><span>Login/Cadastrar</span></Link></li>
-           <li className='whatsapp'><a href='https://wa.me/5517996374860' target='_blank' rel='noopener noreferrer'>
-            <span><FaWhatsapp></FaWhatsapp> (17) 99637-4860</span> </a> </li>           
-        </ul>
-    </Sidebar>
-
-    {/*Menu normal desktop */}
-      <Menu>
-
+        </CloseIcon>
         <ul>
-            {/* <li><Link to='/Login'><span>Login/Cadastrar</span></Link></li> */}
-           {/* <li className='whatsapp'>
+          <li>
+            <Link to="/Login">
+              <span>Login/Cadastrar</span>
+            </Link>
+          </li>
+          <li className="whatsapp">
+            <a
+              href="https://wa.me/5517996374860"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>
+                <FaWhatsapp></FaWhatsapp> (17) 99637-4860
+              </span>{" "}
+            </a>{" "}
+          </li>
+        </ul>
+      </Sidebar>
+
+      {/*Menu normal desktop */}
+      <Menu>
+        <ul>
+          {/* <li><Link to='/Login'><span>Login/Cadastrar</span></Link></li> */}
+          {/* <li className='whatsapp'>
             <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer">
               <FaWhatsapp /> (17) 99637-4860
             </a>
             </li>            */}
 
+          <p style={{ right: "167px" }}>
+            R. Vinte e Um de Abril, 363 - Centro, Catanduva - SP, 15801-170,
+            Brasil
+          </p>
 
-                    <p style={{ right: '167px'}}>
-                      R. Vinte e Um de Abril, 363 - Centro, Catanduva - SP, 15801-170, Brasil
-                    </p>
-        
-                    <p  style={{top: '10px', right: '220px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}>
-                    {/* <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
+          {/* <p  style={{top: '10px', right: '220px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}> */}
+          {/* <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
                       <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '15px' }} />
                       (17) 99637-4860
                       </a> */}
-                    </p>
+          {/* </p> */}
         </ul>
-        </Menu>
-    </Container >
-  )
-}
+      </Menu>
+    </Container>
+  );
+};
 export default Header;

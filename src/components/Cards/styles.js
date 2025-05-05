@@ -126,10 +126,9 @@ z-index: 2;
 &.right{
 right: 10px;
 
-  @media ${devices.mobileM}{
-    right: -15px;
-    width: 60px;
-    height: 60px;
+  @media ${devices.tablet}{
+    right: 10px
+
   }
 }
 &:hover {
@@ -155,4 +154,4 @@ position: relative;
 font-size: 18px;
 right: -6px;
 user-select: none;
-`
+`;

@@ -20,7 +20,7 @@ export default createGlobalStyle`
   }
 
   body, html {
-     overflow-x: hidden;
+    overflow-x: hidden;
     width: 100%; 
   background-color: var (--primary)
   color var(--secondary);

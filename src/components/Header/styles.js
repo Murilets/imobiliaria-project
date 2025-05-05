@@ -13,6 +13,11 @@ export const Container = styled.div`
     padding: 10px 20px;
     height: 70px;
    }
+   
+   @media ${devices.mobileL}{
+   padding: 10px 20px;
+   height: 75px;
+   }
 `;
 
 export const Logo = styled.div`
@@ -22,11 +27,15 @@ export const Logo = styled.div`
   img {
     width: 300px;
   }
+  p{
+    display: none;
+  }
   
   @media ${devices.mobileM}{
 
     img{
       width: 220px;
+      left: 20px;
     }
     display: flex;
     flex-direction: column;
@@ -34,30 +43,49 @@ export const Logo = styled.div`
     width: 100%;
     margin-right: 45px;
   }
+  p{
+    display: none;
+  }
+
+  @media ${devices.mobileL}{
+
+    img{
+      position: relative;
+      width: 250px;
+      right: -20px;
+    }
+  }
 
   @media ${devices.tablet}{
-    width: 500px;
-    justify-content: space-between;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 40px;
+
   }
 `;
 
 //botao do menu hamburguer
 export const MenuButton = styled.button`
-display: none;
-background: none;
-color: black;
-border: none;
-font-size: 1.8rem;
-cursor: pointer;
-margin-left: 20px;
+  display: none; /* escondido por padrão */
+  display: none;
 
-@media ${devices.tablet}{
-  display: block;
+@media (max-width: 768px) {
+  display: flex;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  color: black;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10000;
 }
-
 `;
-
  export const CloseIcon = styled.div`
+ display: none;
  position: absolute;
  top: 15px;
  right: 35px;
@@ -71,21 +99,21 @@ margin-left: 20px;
  `;
 //sidebar para dispositivos moveis
 export const Sidebar = styled.div`
-position: relative;
-top: 0;
-right: ${({menuOpen}) => (menuOpen ? "0" : "-100%")};
-width: 250px;
-height: 260px;
-margin-left: -90px;
-margin-top: 200px;
-background-color: rgb(255, 255, 255);
-box-shadow: -3px 0px 10px rgba(0,0,0,0.2);
-transition: right 0.5s ease-in-out;
-display: flex;
-flex-direction: column;
-align-items: center;
-padding-top: 70px;
-z-index: 1000;
+  position: fixed; /* CORRIGIDO */
+  top: 0;
+  right: ${({ menuOpen }) => (menuOpen ? "0" : "-100%")};
+  width: 250px;
+  height: 100vh; /* altura total da tela */
+  background-color: rgb(255, 255, 255);
+  box-shadow: -3px 0px 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+  z-index: 1000;
+
+
 `;
 
 export const Overlay = styled.div`
@@ -156,9 +184,10 @@ export const Menu = styled.div`
 
     //esconde o menu no mobile
     @media ${devices.mobileM}{
-      display: none;
-    
+      display: flex;
+      position: relative;    
     }
+    
 
       li{
         width: 100%;
@@ -174,8 +203,4 @@ export const Menu = styled.div`
           font-size: 1rem;;
         }
       }
-    
-
- 
-  
 `;

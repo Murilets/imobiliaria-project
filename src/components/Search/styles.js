@@ -60,6 +60,53 @@ position: relative;
         font-size: 16px;
       }
     }
+    
+    @media ${devices.mobileL}{
+      width: 90%;
+      padding: 20px;
+      bottom: 38px;
+      background-color: rgba(163, 158, 158, 0.3); ;
+      animation: none;
+    
+      h1{
+        position: relative;
+        font-size: 20px;
+        padding: 35px 20px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        left: 10px;
+        top: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      p{
+        font-size: 16px;
+      }
+    }
+    @media ${devices.tablet}{
+      width: 90%;
+      padding: 20px;
+      bottom: 20px;
+      background-color: rgba(163, 158, 158, 0.3); ;
+      animation: none;
+    
+      h1{
+        position: relative;
+        font-size: 25px;
+        padding: 35px 20px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        left: 30px;
+        top: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      p{
+        font-size: 16px;
+      }
+    }
 `;
 
 //Wrapper para alinhar os dropdowns
@@ -73,6 +120,11 @@ gap: -10px;
   flex-direction: column; /*no mobile os dropdowns fica empiladfos */
   align-items: center;
 }
+@media ${devices.mobileL}{
+  flex-direction: column; /*no mobile os dropdowns fica empiladfos */
+  align-items: center;
+}
+
 `
 //estilizacao base para todos os dropdowns
 const DropdownBase = styled.div`

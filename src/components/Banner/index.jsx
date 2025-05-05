@@ -35,7 +35,7 @@ const Banner = ()=> {
     </CustomSlider>
 
     <Text>
-      <AnimatedText>O seu Imovel dos sonhos que voce procura esta aqui!</AnimatedText>
+      <AnimatedText>O seu Imovel dos sonhos que você procura esta aqui!</AnimatedText>
     
    
     </Text>

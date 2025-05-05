@@ -12,9 +12,6 @@ export const Container = styled.div`
 
 }
 `;
-
-
-
 export const Item = styled.div`
 position: relative;
 top: 60px;
@@ -99,8 +96,10 @@ p{
       max-width: 100%;
       gap: 2px;
       font-family: Arial, Helvetica, sans-serif;
+      
      }
-      &.services{
+     
+      /* &.services{
         display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,10 +108,10 @@ p{
     .services ul{
 
     }
-     }
+     } */
     }
 
-     @media ${devices.mobileM}{
+     /* @media ${devices.mobileM}{
       .social-icons {
         display: flex;
         justify-content: center;
@@ -134,8 +133,77 @@ p{
         height: 5px;
         background-color: black;
       }
+     } */
+      @media ${devices.mobileL}{
+     position: relative;
+     display: flex;
+     width: 400px;
+     justify-content: center;
+     align-items: center;
+     left: 10px;
+     padding: 20px 20px;
+     
+      
+     img{
+      visibility: hidden;
+      position: relative;
+      width: 200px;
+      height: 60px;
+      bottom: 110px;
+      left: 25px;
      }
     
+    
+     p{
+      position: absolute;
+      width: 95%;
+      height: auto;
+      font-size: 20px;
+      display: flex;
+      right: 150px;
+      bottom: 200px;
+      text-align: left;
+      word-wrap:break-word;
+      max-width: 100%;
+      gap: 2px;
+      font-family: Arial, Helvetica, sans-serif;
+     }
+    }
+    @media ${devices.tablet}{
+     position: relative;
+     display: flex;
+     width: 400px;
+     justify-content: center;
+     align-items: center;
+     left: 10px;
+     padding: 20px 20px;
+     
+      
+     img{
+      visibility: hidden;
+      position: relative;
+      width: 200px;
+      height: 60px;
+      bottom: 110px;
+      left: 25px;
+     }
+    
+    
+     p{
+      position: absolute;
+      width: 95%;
+      height: auto;
+      font-size: 20px;
+      display: flex;
+      right: 150px;
+      bottom: 200px;
+      text-align: left;
+      word-wrap:break-word;
+      max-width: 100%;
+      gap: 2px;
+      font-family: Arial, Helvetica, sans-serif;
+     }
+    }
 `;
 
 
@@ -188,7 +256,7 @@ export const Copy  = styled.div`
         display: flex;
         gap: 20px;
         flex-direction: center;
-        right: 20px;
+        right: -3px;
         bottom: 12px;
         font-size: 10px;
         color: rgb(9, 74, 253);
@@ -207,6 +275,92 @@ export const Copy  = styled.div`
         padding: 0;
         margin: 0;
         bottom: 10px;
+        gap: 10px;
+        text-decoration-line: underline;
+        color:  rgb(9, 74, 253);
+        
+      }
+    }
+    @media ${devices.mobileL}{
+      padding: 20px 20px;
+      width: 100%;
+      height: 140px;
+      position: relative;
+      font-size: 11px;
+      gap: 5px;
+      display: flex;
+      align-items: center;
+      background-color: rgba(206, 201, 201, 0.33);
+
+      p{
+        position: relative;
+        height: 30px;
+        display: flex;
+        gap: 20px;
+        flex-direction: center;
+        right: -3px;
+        bottom: 12px;
+        font-size: 18px;
+        color: rgb(9, 74, 253);
+        text-decoration-line: underline ;
+        cursor: pointer;
+      }
+
+      ul{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap ;
+        flex-direction: center;
+        justify-content: center;
+        font-size: 17px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        bottom: -5px;
+        right: -15px;
+        gap: 10px;
+        text-decoration-line: underline;
+        color:  rgb(9, 74, 253);
+        
+      }
+    }
+    @media ${devices.tablet}{
+      padding: 20px 20px;
+      width: 100%;
+      height: 140px;
+      position: relative;
+      font-size: 11px;
+      gap: 5px;
+      display: flex;
+      align-items: center;
+      background-color: rgba(206, 201, 201, 0.33);
+
+      p{
+        position: relative;
+        height: 30px;
+        display: flex;
+        gap: 20px;
+        flex-direction: center;
+        right: -3px;
+        bottom: 12px;
+        font-size: 18px;
+        color: rgb(9, 74, 253);
+        text-decoration-line: underline ;
+        cursor: pointer;
+      }
+
+      ul{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap ;
+        flex-direction: center;
+        justify-content: center;
+        font-size: 17px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        bottom: -5px;
+        right: -15px;
         gap: 10px;
         text-decoration-line: underline;
         color:  rgb(9, 74, 253);

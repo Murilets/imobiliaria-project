@@ -13,13 +13,17 @@ export const Container = styled.div`
   overflow-x: hidden; /* Impede o scroll lateral */
   box-sizing: border-box;
    
-   @media ${devices.tablet}{
-    height: 400px;
-   }
-
-   @media ${devices.mobileL}{
+  @media ${devices.mobileM}{
     height: 300px;
-   }
+  }
+  
+  @media ${devices.mobileL}{
+    height: 400px;
+  }
+
+  @media ${devices.tablet}{
+   height: 400px;
+  }
 `;
 
 export const CustomSlider = styled(Slider)`
@@ -31,12 +35,12 @@ export const CustomSlider = styled(Slider)`
   left: 0;
   z-index: 0;
 
-
+  
   @media ${devices.tablet}{
-    height: 400px;
-
+    max-height: 100%;
   }
   @media ${devices.mobileL}{
+    width: auto;
     height: 300px;
   }
 `;
@@ -84,20 +88,20 @@ export const Text = styled.div`
  justify-content: center;
  align-items: center;
  
-  @media ${devices.tablet}{
-    width: 90%;
-    bottom: 15%;
-  }
-   
-   @media ${devices.mobileL}{
-  left: 10%;
-
-   }
-   @media ${devices.mobileM}{
-    bottom: 50px;
+ 
+ @media ${devices.mobileM}{
+   bottom: 50px;
    left: 50px;
    transform: translateX(-50%);
-}
+   word-wrap: wrap;
+ }
+ @media ${devices.mobileL}{
+   left: -110px;
+  }
+
+  @media ${devices.tablet}{
+    width: auto;
+  }
 `;
   
   //animando o h2
@@ -121,19 +125,36 @@ export const AnimatedText = styled.h2`
 
 
 //responsividade (talvez nao esteja funcioanndo)
-  @media ${devices.tablet}{
-    width: 90%;
-    bottom: 15%;
-  }
-   
-   @media ${devices.mobileL}{
-    left: 70px;
-    padding: 0 20px;
-    display: inline-block;
-    font-size: calc(10px + 5vw);
-    overflow: visible;
-    white-space: normal;
-    animation: ${expandText} 4s ease-in-out forwards;
-   }
+
+@media ${devices.mobileM}{
+  left: 70px;
+  padding: 0 20px;
+  display: inline-block;
+  font-size: calc(10px + 5vw);
+  overflow: visible;
+  white-space: normal;
+  
+}
+@media ${devices.mobileL}{
+  left: 76px;
+  padding: 0 20px;
+  display: inline-block;
+  font-size: calc(10px + 5vw);
+  overflow: visible;
+  white-space: normal;
+  animation: ${expandText} 4s ease-in-out forwards;
+}
+@media ${devices.tablet}{
+  position: relative;
+  right: 190px;
+  font-size: 30px;
+  max-height: 100%;
+  size: 10px;
+  bottom: -70px;
+  padding: -10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}
 `;
 

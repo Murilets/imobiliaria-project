@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { fadeInUp } from "../../styles/animations";
+import { devices } from "../../styles/responsive";
 
 export const Header = styled.div`
 display: flex;
@@ -19,9 +20,8 @@ animation: ${fadeInUp} 0.8s ease-out;
   flex-direction: column;
   align-items: flex-start;
 }
-
-@media(max-width: 480px){
-  
+@media  ${devices.mobileL}{
+  width: 100%;
 }
 
 `
