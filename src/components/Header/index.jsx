@@ -18,7 +18,8 @@ import {
   CloseIcon,
   Overlay,
 } from "./styles";
-import LogoImg from "../../assets/logo.png";
+
+import LogoImg from "../../assets/visaoimoveislogo1.png";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -54,7 +55,7 @@ const Header = () => {
           <li><Link to='/Login' onClick={() => setIsSidebarOpen(false)}>Login/Cadastrar</Link></li>
           <li><Link to='/Sobre' onClick={() => setIsSidebarOpen(false)}>Sobre</Link></li>
           <li><Link to='/Contatos' onClick={() => setIsSidebarOpen(false)}>Contatos</Link></li>
-          <li className="whatsapp"><a href="https://wa.me/5517996374860" target="_blank" rel="noopener noreferrer" onClick={() => setIsSidebarOpen(false)}><FaWhatsapp /> (17) 99637-4860</a></li>
+          <li className="whatsapp"><a href="https://wa.me/5517997651100" target="_blank" rel="noopener noreferrer" onClick={() => setIsSidebarOpen(false)}><FaWhatsapp /> (17) 99637-4860</a></li>
         </ul>
       </Sidebar>
     )} */}
@@ -96,7 +97,7 @@ const Header = () => {
         <ul>
           {/* <li><Link to='/Login'><span>Login/Cadastrar</span></Link></li> */}
           {/* <li className='whatsapp'>
-            <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer">
+            <a href='https://wa.me/5517997651100' target='_blank' rel= "noopener noreferrer">
               <FaWhatsapp /> (17) 99637-4860
             </a>
             </li>            */}
@@ -107,7 +108,7 @@ const Header = () => {
           </p>
 
           {/* <p  style={{top: '10px', right: '220px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}> */}
-          {/* <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
+          {/* <a href='https://wa.me/5517997651100' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
                       <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '15px' }} />
                       (17) 99637-4860
                       </a> */}

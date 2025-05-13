@@ -17,16 +17,21 @@ position: relative;
 top: 60px;
 height: 220px;
 
-img{
-  width: 230px;
-}
+/* img{
+  position: relative;
+  display: flex;
+  width: 250px;
+  top: -10px;
+} */
 
 
-p{
+/* p{
+  position: relative;
   display: flex;
   padding: 10px;
-  margin-right: 40px;
-}
+  margin-right: 60px;
+  margin-bottom: 50px;
+} */
   ul{
     li{
         padding: 12px 0;

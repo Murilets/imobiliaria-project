@@ -6,19 +6,17 @@ import { devices } from "../../styles/responsive";
 export const Container = styled.div`
   padding: 50px 50px;
   position: relative;
-  height: 600px; /* alinha com o carrosel */
+  min-height: 600px; /* alinha com o carrosel */
   animation: ${fadeInUp} 0.8s ease-out;
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Impede o scroll lateral */
   box-sizing: border-box;
-   
-  @media ${devices.mobileM}{
-    height: 300px;
-  }
+  
   
   @media ${devices.mobileL}{
     height: 400px;
+   
   }
 
   @media ${devices.tablet}{
@@ -28,22 +26,21 @@ export const Container = styled.div`
 
 export const CustomSlider = styled(Slider)`
   width: 100%;
-  height: 600px;
+  height: 100%;
   position: relative;
   overflow: hidden;
   top: 0;
   left: 0;
   z-index: 0;
 
-  
-  @media ${devices.tablet}{
-    max-height: 100%;
-  }
   @media ${devices.mobileL}{
-    width: auto;
-    height: 300px;
+   height: 450px;
+   
   }
+
+
 `;
+
 export const CarouselImageWrapper = styled.div`
 position: relative;
 width: 100%;
@@ -60,7 +57,7 @@ overflow: hidden;
   background: rgba(224, 224, 224, 0.36);
   z-index:1;
 }
-`
+`;
 
 export const CarouselImage = styled.img`
   max-width: 100%;
@@ -89,24 +86,21 @@ export const Text = styled.div`
  align-items: center;
  
  
- @media ${devices.mobileM}{
+ @media ${devices.tablet}{
+  position: absolute;
+   width: 150px;
    bottom: 50px;
    left: 50px;
    transform: translateX(-50%);
    word-wrap: wrap;
  }
- @media ${devices.mobileL}{
-   left: -110px;
-  }
 
-  @media ${devices.tablet}{
-    width: auto;
-  }
+
 `;
   
   //animando o h2
 export const AnimatedText = styled.h2`
-  position: relative;
+
   color: var(--white);
   background-color: rgba(32, 32, 32, 0.07);;
   font-size: 43px;
@@ -126,23 +120,14 @@ export const AnimatedText = styled.h2`
 
 //responsividade (talvez nao esteja funcioanndo)
 
-@media ${devices.mobileM}{
-  left: 70px;
-  padding: 0 20px;
-  display: inline-block;
-  font-size: calc(10px + 5vw);
-  overflow: visible;
-  white-space: normal;
-  
-}
 @media ${devices.mobileL}{
-  left: 76px;
-  padding: 0 20px;
-  display: inline-block;
-  font-size: calc(10px + 5vw);
-  overflow: visible;
-  white-space: normal;
-  animation: ${expandText} 4s ease-in-out forwards;
+  font-size: 24px;
+    margin-top: 0;
+    animation: none;
+    padding: 0 0px;
+    width: 100%;
+    white-space: normal;
+
 }
 @media ${devices.tablet}{
   position: relative;

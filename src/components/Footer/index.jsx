@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import {FaFacebook, FaInstagram, FaWhatsapp, FaLocationArrow, FaClock } from "react-icons/fa"
-import  LogoImg  from '../../assets/logo.png'
+import  LogoImg  from '../../assets/visaoimoveislogo1.png'
 import { Container, Copy, Item  } from './styles';
 
 const Footer = () =>{
@@ -8,24 +8,24 @@ const Footer = () =>{
      <Fragment>
          <Container>
       <Item>
-        <img src={LogoImg} alt='' />
+        {/* <img src={LogoImg} alt='' /> */}
     
-        <p style={{ top: '20px', right: '140px'}}>
+        {/* <p style={{ top: '20px', right: '140px'}}>
           <FaLocationArrow style={{marginRight: '10px', fontSize: '40px', color: '#1E90FF'}} />
           R. Vinte e Um de Abril, 363 - Centro, Catanduva - SP, 15801-170, Brasil
-        </p>
+        </p> */}
         {/* <p  style={{top: '-80px', right: '290px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}>
-        <a href='https://wa.me/5517996374860' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
+        <a href='https://wa.me/5517997651100' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
           <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '20px' }} />
           (17) 99637-4860
           </a>
         </p> */}
        
 
-        <p style={{top: '-50px', left: '-160px'}}>
+        {/* <p style={{top: '-50px', left: '-160px'}}>
           <FaClock style={{marginRight: '7px', fontSize: '25px', color: '#4079f3',}} />
           Segunda a Sexta das 8h as 17h
-        </p>
+        </p> */}
         <nav className='social-icons'>
          
             {/* <li><span><FaFacebook style={{color: 'blue'}}  size={32}/></span></li> */}

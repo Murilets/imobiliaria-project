@@ -25,7 +25,8 @@ export const Logo = styled.div`
   justify-content: space-between;
   align-items: center;
   img {
-    width: 300px;
+    width: 160px;
+    height: auto;
   }
   p{
     display: none;
@@ -68,24 +69,25 @@ export const Logo = styled.div`
 
 //botao do menu hamburguer
 export const MenuButton = styled.button`
-  display: none; /* escondido por padrão */
-  display: none;
-
-@media (max-width: 768px) {
   display: flex;
-  position: fixed;
-  top: 20px;
-  right: 20px;
+  position: relative;
+  top: -2px;
+  right: 10px;
   background: none;
   color: black;
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 10000;
+  z-index: 1000;
+  
+@media (min-width: 769px) {
+  display: none;
+  
 }
 `;
+
  export const CloseIcon = styled.div`
- display: none;
+ display: flex;
  position: absolute;
  top: 15px;
  right: 35px;

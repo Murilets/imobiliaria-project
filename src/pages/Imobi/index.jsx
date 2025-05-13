@@ -35,7 +35,7 @@ useEffect (() => {
   
 }, [])
 const handleEnviarWhatsApp = () => {
-  const numeroProprietario = "5517997618886"; //numero do proprietario do imovel
+  const numeroProprietario = "5517997651100"; //numero do proprietario do imovel
 
   //mensagem pre definida
   const msgDefinida = `Nome : ${nome}%0AEmail: ${email}%0AMensagem:  ${mensagem}`;
