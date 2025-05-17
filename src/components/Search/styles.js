@@ -39,64 +39,17 @@ export const Container = styled.div`
       color: red
     }
   } */
-  @media ${devices.mobileM} {
-    position: relative;
-    width: 90%;
-    padding: 30px;
-    top: -30vh; 
-    background-color: rgba(163, 158, 158, 0.3);
-    animation: none;
 
-    h1 {
-      position: relative;
-      font-size: 20px !important;
-      padding: 35px 20px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      left: 10px;
-      top: 20px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    p {
-      font-size: 16px;
-    }
-  }
-
-  @media ${devices.mobileL} {
-    width: 90%;
+  @media ${devices.tablet} {
+    width: 100%;
     padding: 20px;
-    bottom: 10px;
+    bottom: 330px;
     background-color: rgba(163, 158, 158, 0.3);
     animation: none;
 
     h1 {
       position: relative;
       font-size: 20px;
-      padding: 35px 20px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      left: 10px;
-      top: 20px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    p {
-      font-size: 16px;
-    }
-  }
-  @media ${devices.tablet} {
-    width: 90%;
-    padding: 20px;
-    bottom: 20px;
-    background-color: rgba(163, 158, 158, 0.3);
-    animation: none;
-
-    h1 {
-      position: relative;
-      font-size: 25px;
       padding: 35px 20px;
       margin-bottom: 10px;
       display: flex;
@@ -119,11 +72,7 @@ export const DropdownWrapper = styled.div`
   justify-content: center;
   gap: -10px;
 
-  @media ${devices.mobileM} {
-    flex-direction: column; /*no mobile os dropdowns fica empiladfos */
-    align-items: center;
-  }
-  @media ${devices.mobileL} {
+  @media ${devices.tablet} {
     flex-direction: column; /*no mobile os dropdowns fica empiladfos */
     align-items: center;
   }
@@ -145,14 +94,14 @@ const DropdownBase = styled.div`
     border-radius: 5px;
   }
   // ajust especificos para mobile
-  @media ${devices.mobileM} {
+  @media ${devices.tablet} {
     width: 100%;
 
     select {
       position: relative;
       display: flex;
       align-items: left;
-      width: 200px;
+      width: 240px;
       height: 47px;
     }
   }

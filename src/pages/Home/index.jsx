@@ -41,7 +41,7 @@ const Home = () => {
       ))} */}
       <WhatsAppButton />
       <Header>
-        <h2>Propriedades em Destaque</h2>
+        <h2> Imóveis Disponíveis </h2>
       </Header>
 
       <CardsWrapper isTwoCards={(filteredImoveis.length || imoveis.length) === 2}>

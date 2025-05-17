@@ -13,14 +13,9 @@ export const Container = styled.div`
   overflow-x: hidden; /* Impede o scroll lateral */
   box-sizing: border-box;
   
-  
-  @media ${devices.mobileL}{
-    height: 400px;
-   
-  }
-
   @media ${devices.tablet}{
-   height: 400px;
+   height: 100%;
+
   }
 `;
 
@@ -33,8 +28,9 @@ export const CustomSlider = styled(Slider)`
   left: 0;
   z-index: 0;
 
-  @media ${devices.mobileL}{
-   height: 450px;
+  @media ${devices.tablet}{
+    width: 100%;
+   height:100%;
    
   }
 
@@ -71,41 +67,40 @@ export const CarouselImage = styled.img`
  .slick-active &{
   transform: scale(1.1); /**/
  }
+
+ @media ${devices.tablet}{
+
+ }
 `;
 
 export const Text = styled.div`
-  width: 55%;
+  width: 40%;
   text-align: center;
   position: absolute;
   margin: 70px;
-  left: 20%;
+  right: 30%;
   bottom: 230px;
   z-index: 1;
  display: flex;
  justify-content: center;
  align-items: center;
- 
- 
+
+
  @media ${devices.tablet}{
-  position: absolute;
-   width: 150px;
-   bottom: 50px;
-   left: 50px;
-   transform: translateX(-50%);
-   word-wrap: wrap;
+  width: 100%;
+  height: auto;
  }
-
-
 `;
   
   //animando o h2
 export const AnimatedText = styled.h2`
 
   color: var(--white);
-  background-color: rgba(32, 32, 32, 0.07);;
+  background-color: rgba(78, 76, 76, 0.2);;
   font-size: 43px;
   font-weight: 100;
   font-family: Arial, Helvetica, sans-serif;
+  border-radius: 12px;
   margin-top: 300px;
   user-select: none;
   z-index: 1;
@@ -115,31 +110,23 @@ export const AnimatedText = styled.h2`
   width: 0;
   line-height: 1.0;
   word-wrap: normal ;
-  animation: ${typingEffect} 3s steps(90) 0s forwards;
+  animation: ${typingEffect} 2s steps(90) 0s forwards;
 
 
 //responsividade (talvez nao esteja funcioanndo)
 
-@media ${devices.mobileL}{
-  font-size: 24px;
-    margin-top: 0;
-    animation: none;
-    padding: 0 0px;
-    width: 100%;
-    white-space: normal;
 
-}
 @media ${devices.tablet}{
   position: relative;
-  right: 190px;
-  font-size: 30px;
-  max-height: 100%;
-  size: 10px;
-  bottom: -70px;
-  padding: -10px;
+  right: -180px;
+  width: 100px;
+  height: 100%;
+  font-size: 20px;
+  bottom: 150px;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
+    
 }
 `;
 

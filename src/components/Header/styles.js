@@ -9,15 +9,12 @@ export const Container = styled.div`
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background-color: var(--white);
 
-   @media ${devices.mobileM}{
+   @media ${devices.tablet}{
     padding: 10px 20px;
     height: 70px;
    }
    
-   @media ${devices.mobileL}{
-   padding: 10px 20px;
-   height: 75px;
-   }
+
 `;
 
 export const Logo = styled.div`
@@ -32,39 +29,23 @@ export const Logo = styled.div`
     display: none;
   }
   
-  @media ${devices.mobileM}{
+  @media ${devices.tablet}{
 
     img{
-      width: 220px;
-      left: 20px;
+      width: 165px;
+     
     }
     display: flex;
     flex-direction: column;
-    height: 68px;
+    height: 100%;
     width: 100%;
-    margin-right: 45px;
+    margin-right: 190px;
+    margin-bottom: 60px;
   }
   p{
     display: none;
   }
 
-  @media ${devices.mobileL}{
-
-    img{
-      position: relative;
-      width: 250px;
-      right: -20px;
-    }
-  }
-
-  @media ${devices.tablet}{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    right: 40px;
-
-  }
 `;
 
 //botao do menu hamburguer
@@ -80,9 +61,8 @@ export const MenuButton = styled.button`
   cursor: pointer;
   z-index: 1000;
   
-@media (min-width: 769px) {
-  display: none;
-  
+@media ${devices.desktop} {
+   display: none;
 }
 `;
 
@@ -185,7 +165,7 @@ export const Menu = styled.div`
     } */
 
     //esconde o menu no mobile
-    @media ${devices.mobileM}{
+    @media ${devices.tablet}{
       display: flex;
       position: relative;    
     }
@@ -205,4 +185,6 @@ export const Menu = styled.div`
           font-size: 1rem;;
         }
       }
+
+    
 `;

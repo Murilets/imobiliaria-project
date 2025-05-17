@@ -2,41 +2,28 @@ import styled from "styled-components";
 import { devices } from "../../styles/responsive";
 
 export const Container = styled.div`
-position: relative;
-width: 25%;
-margin-bottom: 12px;
-margin-left: 0;
-background-color: var(--white);
-box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
-border-radius: 8px;
-overflow: hidden;
-transition: transform 0.3s, box-shadown 0.3s;
-color: black;
+  position: relative;
+  width: 25%;
+  margin-bottom: 12px;
+  background-color: var(--white);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  color: black;
 
-&:hover {
-  transform: scale(1.05);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-}
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  }
 
-@media ${devices.laptop} {
-  width: 45%;
-  margin-left: 50px;
-}
-
-@media ${devices.tablet}{
-  width: 70%;
-  padding:20px;
-}
-
-@media  ${devices.mobileL}{
-width: 100%;
-padding: 10px;
-margin-left: 0;
-}
-@media ${devices.mobileM}{
-width: 100%;
-}
+  @media ${devices.tablet} {
+    width: 100%;
+    bottom: 200px;
+    padding: 10px;
+  }
 `;
+
 export const CardsWrapper = styled.div`
    display: flex;
   flex-wrap: wrap;
@@ -47,17 +34,20 @@ export const CardsWrapper = styled.div`
 `;
 export const Img = styled.div`
   width: 100%;
-  height: 350px;
+  height: 420px; // antes era 350px
   overflow: hidden;
   position: relative;
-  color: black;
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
   }
 
+  @media ${devices.tablet} {
+    width: 100%;
+    height: 300px; // um pouco menor no mobile
+  }
 `;
 export const Description = styled.div`
   padding: 12px;
@@ -96,44 +86,37 @@ export const Itens = styled.div`
 `;
 
 export const Arrow = styled.div`
-position: absolute;
-top: 60%;
-transform: translateY(-50%);
-background-color:   rgba(0, 0, 0, 0.73);
-color: white;
-border-radius: 23%;
-width: 37px;
-height: 45px;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
 
-z-index: 2;
-
-&.left{
-  left: 10px;
-
-  @media ${devices.mobileM}{
-    position: absolute;
-    left: -20px;
-    width: 65px;
-    height: 60px;
-    z-index: 3;
+  &.left {
+    left: 10px;
   }
-}
 
-&.right{
-right: 10px;
-
-  @media ${devices.tablet}{
-    right: 10px
-
+  &.right {
+    right: 10px;
   }
-}
-&:hover {
-  background-color:  rgba(0, 0, 0, 0.99);
-}
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  @media ${devices.tablet} {
+    width: 35px;
+    height: 35px;
+    
+  }
 `;
 
 

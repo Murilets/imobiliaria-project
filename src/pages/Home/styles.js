@@ -16,6 +16,8 @@ animation: ${fadeInUp} 0.8s ease-out;
 }
 
 @media (max-width: 768px){
+  position: absolute;
+  top: 50.0rem;
   padding: 15px 40px;
   flex-direction: column;
   align-items: flex-start;

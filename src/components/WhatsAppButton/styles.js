@@ -23,7 +23,7 @@ transition: box-shadow 1s ease-out, opacity 1s ease-out;
 border: none;
 
 
-@media ${devices.mobileM}{
+@media ${devices.tablet}{
     display: none;
     width: 62px;
     height: 64px;

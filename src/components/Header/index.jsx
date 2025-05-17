@@ -106,6 +106,12 @@ const Header = () => {
             R. Vinte e Um de Abril, 363 - Centro, Catanduva - SP, 15801-170,
             Brasil
           </p>
+          <p style={{ left: "790px", top: "35px" }}>
+          Funcionamento de Segunda á Sexta
+          </p>
+          <p style={{ left: "790px", top:"55px" }}>
+          Dás 8h ás 17h
+          </p>
 
           {/* <p  style={{top: '10px', right: '220px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}> */}
           {/* <a href='https://wa.me/5517997651100' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
