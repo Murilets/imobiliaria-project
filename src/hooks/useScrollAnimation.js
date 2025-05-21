@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 export function useScrollAnimation(){
     const [isVisible, setIsVisible] = useState(false); // estado que indica se o elemento esta visivel
     const elementRef = useRef(null);  // referencia ao elemento que queremos observar
-
+    
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -25,4 +25,10 @@ export function useScrollAnimation(){
         };
     }, []);
     return {elementRef, isVisible }; //retorna a referencia e o estado para serem usados no componente
+
+
 }
+
+
+ 
+

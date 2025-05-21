@@ -70,12 +70,15 @@ const Header = () => {
 
       <Sidebar menuOpen={menuOpen}>
         <CloseIcon onClick={() => setMenuOpen(false)}>
+          <h3>MENU</h3>
           <FaTimes />
         </CloseIcon>
         <ul>
           <li>
+            
+             <span></span> 
             <Link to="/Login">
-              <span>Login/Cadastrar</span>
+              {/* <p>Login/Cadastrar</p> */}
             </Link>
           </li>
           <li className="whatsapp">
@@ -84,9 +87,10 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>
+              <p>
+                
                 <FaWhatsapp></FaWhatsapp> (17) 99637-4860
-              </span>{" "}
+              </p>{" "}
             </a>{" "}
           </li>
         </ul>

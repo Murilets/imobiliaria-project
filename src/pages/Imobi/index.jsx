@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import {
   Container,
@@ -18,36 +18,60 @@ import Input from "../../components/Input";
 import TextArea from "../../components/TextArea";
 import Button from "../../components/Button";
 import TopBanner from "../../components/TopBanner";
-import WhatsAppButton from "../../components/WhatsAppButton"
+import WhatsAppButton from "../../components/WhatsAppButton";
 
 const Imobi = () => {
+  const carouselRef = useRef(null);
+  const scrollToNext = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({
+        left: carouselRef.current.offsetWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollToPrev = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({
+        left: -carouselRef.current.offsetWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleScroll = () => {
+    if (!carouselRef.current) return;
+
+    const scrollLeft = carouselRef.current.scrollLeft;
+    const width = carouselRef.current.offsetWidth;
+    const index = Math.round(scrollLeft / width);
+    setImagemAtual(index);
+  };
 
   //armazena os inputs
-const [nome, setNome] = useState("");
-const [email, setEmail] = useState("");
-const [mensagem, setMensagem] = useState(
-  "Olá, estou interessado neste imóvel!"
-);
-useEffect (() => {
-  const urlAtual = window.location.href;
-  const mensagemPronta = `Olá, estou interessado neste imóvel! Poderia me enviar mais informações?\n\n ${urlAtual}`
-  setMensagem(mensagemPronta);
-  
-}, [])
-const handleEnviarWhatsApp = () => {
-  const numeroProprietario = "5517997651100"; //numero do proprietario do imovel
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState(
+    "Olá, estou interessado neste imóvel!"
+  );
+  useEffect(() => {
+    const urlAtual = window.location.href;
+    const mensagemPronta = `Olá, estou interessado neste imóvel! Poderia me enviar mais informações?\n\n ${urlAtual}`;
+    setMensagem(mensagemPronta);
+  }, []);
+  const handleEnviarWhatsApp = () => {
+    const numeroProprietario = "5517997651100"; //numero do proprietario do imovel
 
-  //mensagem pre definida
-  const msgDefinida = `Nome : ${nome}%0AEmail: ${email}%0AMensagem:  ${mensagem}`;
+    //mensagem pre definida
+    const msgDefinida = `Nome : ${nome}%0AEmail: ${email}%0AMensagem:  ${mensagem}`;
 
-  //criando a URL do wahts com a mensagem definida
-  const urlWhatsApp = `https://wa.me/${numeroProprietario}?text=${msgDefinida}`
+    //criando a URL do wahts com a mensagem definida
+    const urlWhatsApp = `https://wa.me/${numeroProprietario}?text=${msgDefinida}`;
 
-  //Abir a URL no whats
-  window.open (urlWhatsApp, "_blank");
-};
-
-
+    //Abir a URL no whats
+    window.open(urlWhatsApp, "_blank");
+  };
 
   const { id } = useParams(); //pegando o id da URL
   const [imovel, setImovel] = useState(null);
@@ -71,20 +95,25 @@ const handleEnviarWhatsApp = () => {
     return <p>Carregando...</p>; // Caso os dados ainda não tenham chegado
   }
   const proximaImagem = () => {
-    setImagemAtual ((prev) => prev + 1 < Object.keys(imovel.photos[0]).length ? prev +1 : 0);
+    carouselRef.current.scrollBy({
+      left: 300, // role 300px pra direita
+      behavior: "smooth", //desliza suavemente
+    });
   };
 
   const imagemAnterior = () => {
-    setImagemAtual((prev) =>
-     prev -1 >= 0 ? prev - 1 : Object.keys(imovel.photos[0]).length -1);
+    carouselRef.current.scrollBy({
+      left: -300, //role 300px para esquerda
+      behavior: "smooth",
+    });
   };
 
   const getFeature = (type) => {
-    switch(type){
+    switch (type) {
       case "GARAGE":
-        return "garagem"
+        return "garagem";
     }
-  }
+  };
 
   return (
     <Fragment>
@@ -93,39 +122,56 @@ const handleEnviarWhatsApp = () => {
         <Left>
           <Thumb>
             {imovel.photos && imovel.photos.length > 0 && (
-              <> 
-              
-              <Arrow  className="Left" onClick={imagemAnterior}>
-                <FaArrowAltCircleLeft />
+              <>
+                <Arrow className="Left" onClick={imagemAnterior}>
+                  <FaArrowAltCircleLeft />
                 </Arrow>
-              <img src={Object.values(imovel.photos[0])[imagemAtual]} alt={`Imagem ${imagemAtual +1}`} 
-              />
-               <Arrow  className="Right" onClick={proximaImagem}>
-                <FaArrowAltCircleRight />
-               </Arrow>
+
+                <div
+                  className="carousel"
+                  ref={carouselRef}
+                  onScroll={handleScroll}
+                >
+                  {Object.values(imovel.photos[0]).map((src, index) => (
+                    <img
+                      key={index}
+                      src={src}
+                      alt={`Imagem ${index + 1}`}
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+                <div className="image-counter">
+                  {imagemAtual + 1} / {Object.values(imovel.photos[0]).length}
+                </div>
+
+                <Arrow className="Right" onClick={proximaImagem}>
+                  <FaArrowAltCircleRight />
+                </Arrow>
               </>
             )}
           </Thumb>
-    
+
           <Description>
-          <hr></hr>
-            <h2>{imovel.type} para Venda,  {imovel.city} / {imovel.estado}</h2>
+            <hr></hr>
+            <h2>
+              {imovel.type} para Venda, {imovel.city} / {imovel.estado}
+            </h2>
             <span className="price"> R$ {imovel.price}</span>
-            <span className="street">{ imovel.street} |</span>
+            <span className="street">{imovel.street} |</span>
             <span className="linebetween">a</span>
             <span className="linebetween2">a</span>
             <span className="features">
-              {imovel.features.map((feature, index) =>(
+              {imovel.features.map((feature, index) => (
                 <span key={index}>
                   {feature.quantity} {feature.description}
                   {index < imovel.features.length - 1 ? " |" : ""}
                 </span>
               ))}
-           </span>
+            </span>
 
-           <span className="descricao">DESCRIÇÃO DO IMÓVEL</span> 
-           <p>{imovel.description}</p>
-
+            <span className="descricao">DESCRIÇÃO DO IMÓVEL</span>
+            <p>{imovel.description}</p>
           </Description>
         </Left>
         <Right>
@@ -149,11 +195,25 @@ const handleEnviarWhatsApp = () => {
           <ProfileFormContact>
             {/* <h3> Contate o anunciante:</h3> */}
             <form>
-              <Input type="text" placeholder="Nome:" value={nome} onChange={(e) => setNome(e.target.value)} />
+              <Input
+                type="text"
+                placeholder="Nome:"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+              />
 
-              <Input type="text" placeholder="E-mail:"  value={email} onChange={(e) => setEmail(e.target.value)}/>
+              <Input
+                type="text"
+                placeholder="E-mail:"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
-              <TextArea placeholder="Mensagem:" value={mensagem} onChange={(e) => setMensagem(e.target.value)} />
+              <TextArea
+                placeholder="Mensagem:"
+                value={mensagem}
+                onChange={(e) => setMensagem(e.target.value)}
+              />
               <Button onClick={handleEnviarWhatsApp}> Enviar mensagem</Button>
             </form>
           </ProfileFormContact>

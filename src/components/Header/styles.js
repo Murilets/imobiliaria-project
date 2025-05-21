@@ -32,7 +32,7 @@ export const Logo = styled.div`
   @media ${devices.tablet}{
 
     img{
-      width: 165px;
+      width: 120px;
      
     }
     display: flex;
@@ -40,7 +40,7 @@ export const Logo = styled.div`
     height: 100%;
     width: 100%;
     margin-right: 190px;
-    margin-bottom: 60px;
+    margin-bottom: 55px;
   }
   p{
     display: none;
@@ -51,6 +51,7 @@ export const Logo = styled.div`
 //botao do menu hamburguer
 export const MenuButton = styled.button`
   display: flex;
+  visibility: hidden;
   position: relative;
   top: -2px;
   right: 10px;
@@ -61,23 +62,34 @@ export const MenuButton = styled.button`
   cursor: pointer;
   z-index: 1000;
   
-@media ${devices.desktop} {
-   display: none;
+@media ${devices.tablet}{
+  visibility: visible;
 }
 `;
 
  export const CloseIcon = styled.div`
  display: flex;
  position: absolute;
- top: 15px;
- right: 35px;
- font-size: 24px;
+ top: 4px;
+ right: 25px;
+ font-size: 28px;
  cursor: pointer;
  color: var(--black);
+  h3{
+    position: fixed;
+    display: flex;
+    margin-left: -180px;
+    top: 10px;
+    color: rgb(68, 116, 248);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
 
   &:hover {
     color: var(--alt-color);
   }
+
+ 
  `;
 //sidebar para dispositivos moveis
 export const Sidebar = styled.div`
@@ -95,7 +107,29 @@ export const Sidebar = styled.div`
   padding-top: 70px;
   z-index: 1000;
 
+@media ${devices.tablet}{
+  span{
+    position: relative;
+    display: flex;
+    height: 5px;
+    top: -35px;
+    width: 31vh;
+    color: black;
+    background-color :rgb(61, 60, 60);
+  }
+   p{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 30px;
+     height: 65px;
+     width: 100%;
+    color: rgb(142, 253, 142);;
+    font-family: Arial, Helvetica, sans-serif;
+   }
+ 
 
+}
 `;
 
 export const Overlay = styled.div`
@@ -174,6 +208,7 @@ export const Menu = styled.div`
       li{
         width: 100%;
         text-align: center;
+     
       }
     }
         
@@ -181,8 +216,10 @@ export const Menu = styled.div`
       li{
         flex-direction: column;
         padding: 5px;
+       
         span{
-          font-size: 1rem;;
+          font-size: 3rem;;
+        
         }
       }
 
