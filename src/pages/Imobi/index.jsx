@@ -59,6 +59,16 @@ const [currentImageIndex, SetCurrentImageIndex] = useState(0);
     const mensagemPronta = `Olá, estou interessado neste imóvel! Poderia me enviar mais informações?\n\n ${urlAtual}`;
     setMensagem(mensagemPronta);
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!nome || !email || !mensagem){
+      alert ("Por Favor, Preencha todos os campos!");
+      return;
+    }
+    handleEnviarWhatsApp();
+  };
   const handleEnviarWhatsApp = () => {
     const numeroProprietario = "5517997651100"; //numero do proprietario do imovel
 
@@ -194,7 +204,7 @@ const [currentImageIndex, SetCurrentImageIndex] = useState(0);
           </ProfileContact>
           <ProfileFormContact>
             {/* <h3> Contate o anunciante:</h3> */}
-            <form>
+            <form onSubmit={handleSubmit}>
               <Input
                 type="text"
                 placeholder="Nome:"
@@ -214,7 +224,7 @@ const [currentImageIndex, SetCurrentImageIndex] = useState(0);
                 value={mensagem}
                 onChange={(e) => setMensagem(e.target.value)}
               />
-              <Button onClick={handleEnviarWhatsApp}> Enviar mensagem</Button>
+              <Button type="submit"> Enviar mensagem</Button>
             </form>
           </ProfileFormContact>
         </Right>
