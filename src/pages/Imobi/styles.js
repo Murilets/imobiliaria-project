@@ -230,16 +230,17 @@ export const Right = styled.div`
   position: relative;
   width: 30%;
   padding: 20px;
-  right: -60px;
-  bottom: -50px;
+  right: -80px;
+  bottom: -10px;
   background-color: rgba(192, 190, 190, 0.29);
   border: 1px solid rgba(97, 137, 247, 0.84);
   
 
   @media ${devices.tablet} {
+    position: block;
     width: 100%;
     right: 0;
-    bottom: -20px;
+    bottom: -170px;
   }
 `;
 export const Profile = styled.div`
