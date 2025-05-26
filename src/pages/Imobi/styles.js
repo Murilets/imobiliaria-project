@@ -145,10 +145,10 @@ export const Description = styled.div`
     align-items: center;
     justify-content: center;
     color: #fff;
-    background: linear-gradient(135deg, rgb(11, 36, 150), rgb(9, 36, 145));
+    background: linear-gradient(135deg, rgb(78, 111, 255), rgb(9, 36, 145));
     border-radius: 11px;
-    height: 70px;
-    width: 390px;
+    height: 65px;
+    width: 280px;
     margin-right: auto;
     font-size: 34px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -163,7 +163,7 @@ export const Description = styled.div`
     width: 0;
     height: 0;
     border-top: 33px solid transparent;
-    border-bottom: 35px solid transparent;
+    border-bottom: 29px solid transparent;
     border-left: 40px solid #0623a3;
   }
   .descricao {
@@ -192,6 +192,7 @@ export const Description = styled.div`
     padding: 10px;
     text-align: center;
     justify-content: center;
+    
    
     hr{
       display: none;
@@ -201,8 +202,8 @@ export const Description = styled.div`
       top: -6px;
     }
     p{
-      font-size: 16px;
-      top: 25px;
+   
+     
     }
     .price{
       justify-content: center;
@@ -216,14 +217,6 @@ export const Description = styled.div`
     .price::before {
       display: none;
     }
-@media ${devices.tablet} {
-  .linebetween {
-    top: 80px;
-  }
-  .linebetween2{
-    top: 77px;
-  }
-}
   }
 `;
 export const Right = styled.div`

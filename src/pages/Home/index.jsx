@@ -10,16 +10,20 @@ import { CardsWrapper } from "../../components/Cards/styles";
 const Home = () => {
   const { elementRef, isVisible } = useScrollAnimation();
 
-  const [imoveis, setImoveis] = useState([]); //variavel para armazenar os imoveis
-  const [filteredImoveis, setFilteredImoveis] = useState ([]);
+  const [imoveis, setImoveis] = useState([]);
+  const [filteredImoveis, setFilteredImoveis] = useState([]);
+  const [isFiltered, setIsFiltered] = useState(false);
+  <Search
+    setFilteredImoveis={setFilteredImoveis}
+    setIsFiltered={setIsFiltered}
+  />;
 
-  //buscar os imoveis do backend quando o componente for carregado
   useEffect(() => {
     fetch("http://localhost:3220/imoveis")
       .then((response) => response.json())
       .then((data) => {
-        setImoveis(data);    //Armazena todos os imoveis
-        setFilteredImoveis(data); // inicia com todos os imoveis exibidos
+        setImoveis(data);
+        setFilteredImoveis(data);
         console.log("Imóveis recebidos: ", data);
       })
       .catch((error) => {
@@ -27,38 +31,43 @@ const Home = () => {
       });
   }, []);
 
-  // let Card = [];
-  // for(let i = 0; i<4; ++i){
-  //   Card.push(<Cards key={i}/>)
-
-  // }
   return (
     <Fragment>
       <Banner />
-      <Search  setFilteredImoveis={setFilteredImoveis}/>
-      {/* {filteredImoveis.map((imovel) => (
-         <Cards />
-      ))} */}
-      <WhatsAppButton />
-      <Header>
-        <h2> Imóveis Disponíveis </h2>
-      </Header>
 
-      <CardsWrapper isTwoCards={(filteredImoveis.length || imoveis.length) === 2}>
-  {(filteredImoveis.length > 0 ? filteredImoveis : imoveis).map((imovel) => (
-    <Cards
-      key={imovel.id}
-      id={imovel.id}
-      type={imovel.type}
-      price={imovel.price}
-      street={imovel.street}
-      cep={imovel.cep}
-      city={imovel.city}
-      estado={imovel.estado}
-      features={imovel.features}
-    />
-  ))}
-</CardsWrapper>
+      <Search
+        setFilteredImoveis={setFilteredImoveis}
+        setIsFiltered={setIsFiltered} // <<< importante passar este set
+      />
+
+      <WhatsAppButton />
+
+      <Header>
+        <h2>Imóveis Disponíveis</h2>
+      </Header>
+      {filteredImoveis.length === 0 && isFiltered ? (
+        <p>Nenhum imóvel encontrado na sua busca</p>
+      ) : (
+        <CardsWrapper
+          isTwoCards={(filteredImoveis.length || imoveis.length) === 2}
+        >
+          {(filteredImoveis.length > 0 ? filteredImoveis : imoveis).map(
+            (imovel) => (
+              <Cards
+                key={imovel.id}
+                id={imovel.id}
+                type={imovel.type}
+                price={imovel.price}
+                street={imovel.street}
+                cep={imovel.cep}
+                city={imovel.city}
+                estado={imovel.estado}
+                features={imovel.features}
+              />
+            )
+          )}
+        </CardsWrapper>
+      )}
     </Fragment>
   );
 };

@@ -52,4 +52,6 @@ export const Wrapper = styled.div`
   @media (max-width: 480px) {
     padding: 10px 20px; /* ajuste para celulares */
   }
-`
+
+
+`;

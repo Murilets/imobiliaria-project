@@ -13,7 +13,7 @@ import Button from "../../components/Button";
 import axios from "axios";
 // import Cards from '../../components/Cards';
 
-const Search = ({ setFilteredImoveis }) => {
+const Search = ({ setFilteredImoveis, setIsFiltered }) => {
   const [filters, setFilters] = useState({
     // type: '',
     // city: '',
@@ -30,7 +30,7 @@ const Search = ({ setFilteredImoveis }) => {
     const { name, value } = e.target;
     setFilters({ ...filters, [name]: value });
   };
-
+  
   const handleSearch = async () => {
     console.log("filtro", filters);
 
@@ -44,9 +44,15 @@ const Search = ({ setFilteredImoveis }) => {
         `http://localhost:3220/imoveis?${queryParams}`
       );
       setFilteredImoveis(response.data); // Atualiza os imóveis filtrados na Home
+      setIsFiltered(true)  // Aqui marca que buscou com filtro
+
       console.log("Resultados filtrados", response.data);
     } catch (error) {
       console.error("erro ao buscar imoveis", error);
+      if (error.response && error.response.status === 404){
+        setFilteredImoveis([]);
+        setIsFiltered(true);
+      }
     }
   };
   return (
