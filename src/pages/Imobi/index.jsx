@@ -7,8 +7,6 @@ import {
   Thumb,
   Description,
   Profile,
-  ProfileImg,
-  ProfileDescription,
   ProfileContact,
   ProfileFormContact,
   Arrow,
@@ -21,10 +19,28 @@ import TopBanner from "../../components/TopBanner";
 import WhatsAppButton from "../../components/WhatsAppButton";
 
 const Imobi = () => {
-
-const [currentImageIndex, SetCurrentImageIndex] = useState(0);
+  const [currentImageIndex, SetCurrentImageIndex] = useState(0);
 
   const [photos, setPhotos] = useState([]);
+
+
+  //verificacao de nome 
+const isValidName = (nome) => {
+  const regex = /^[A-Za-zÀ-ú\s]{3,}$/;
+  return regex.test(nome);
+};
+
+//verificacao de email
+const isValidEmail=(email) => {
+   if (typeof email !== 'string') return false;
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email.trim());
+}
+
+///verificao de mensagem
+const isValidMessage = (mensagem) => {
+ return String(mensagem).trim().length >= 10;
+};
 
   const handleNextImage = () => {
     SetCurrentImageIndex((prevIndex) =>
@@ -37,8 +53,7 @@ const [currentImageIndex, SetCurrentImageIndex] = useState(0);
     );
   };
 
-
-  const carouselRef = useRef(null)
+  const carouselRef = useRef(null);
   const handleScroll = () => {
     if (!carouselRef.current) return;
 
@@ -63,12 +78,30 @@ const [currentImageIndex, SetCurrentImageIndex] = useState(0);
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!nome || !email || !mensagem){
-      alert ("Por Favor, Preencha todos os campos!");
+    
+    if (!nome || !email || !mensagem) {
+      alert("Por Favor, Preencha todos os campos!");
       return;
     }
+
+    if (!isValidName(nome)) {
+      alert("Por favor,  insira um nome válido.");
+      return;
+    }
+
+       if (!isValidEmail(email)) {
+      alert("Por favor,  insira um e-mail válido.");
+      return;
+    }
+
+       if (!isValidMessage(mensagem)) {
+      alert("Por favor, escreva uma mensagem mais detalhada");
+      return;
+    }
+
     handleEnviarWhatsApp();
   };
+
   const handleEnviarWhatsApp = () => {
     const numeroProprietario = "5517997651100"; //numero do proprietario do imovel
 
@@ -132,8 +165,6 @@ const [currentImageIndex, SetCurrentImageIndex] = useState(0);
           <Thumb>
             {imovel.photos && imovel.photos.length > 0 && (
               <>
-              
-
                 <div
                   className="carousel"
                   ref={carouselRef}
@@ -151,17 +182,15 @@ const [currentImageIndex, SetCurrentImageIndex] = useState(0);
                 <div className="image-counter">
                   {imagemAtual + 1} / {Object.values(imovel.photos[0]).length}
                 </div>
-
-            
               </>
             )}
           </Thumb>
-             <Arrow className="Left" onClick={imagemAnterior}>
-                  <FaArrowAltCircleLeft />
-                </Arrow>
-                    <Arrow className="Right" onClick={proximaImagem}>
-                  <FaArrowAltCircleRight />
-                </Arrow>
+          <Arrow className="Left" onClick={imagemAnterior}>
+            <FaArrowAltCircleLeft />
+          </Arrow>
+          <Arrow className="Right" onClick={proximaImagem}>
+            <FaArrowAltCircleRight />
+          </Arrow>
           <Description>
             <hr></hr>
             <h2>
@@ -193,8 +222,8 @@ const [currentImageIndex, SetCurrentImageIndex] = useState(0);
               />
             </ProfileImg> */}
             {/* <ProfileDescription> */}
-              {/* <h3>RONEI VILELA</h3> */}
-              {/* <p>Descricao do usuario</p> */}
+            {/* <h3>RONEI VILELA</h3> */}
+            {/* <p>Descricao do usuario</p> */}
             {/* </ProfileDescription> */}
           </Profile>
           <ProfileContact>
