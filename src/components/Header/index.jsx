@@ -83,13 +83,13 @@ const Header = () => {
           </li>
           <li className="whatsapp">
             <a
-              href="https://wa.me/5517996374860"
+              href="https://wa.me/5517997651100"
               target="_blank"
               rel="noopener noreferrer"
             >
               <p>
                 
-                <FaWhatsapp></FaWhatsapp> (17) 99637-4860
+                <FaWhatsapp style={{color: " rgb(50, 207, 44)"}}></FaWhatsapp> (17) 99765-1100
               </p>{" "}
             </a>{" "}
           </li>

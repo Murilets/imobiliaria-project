@@ -121,10 +121,10 @@ export const Sidebar = styled.div`
     display: flex;
     justify-content: center;
     position: relative;
-    top: 30px;
+    top: 5px;
      height: 65px;
      width: 100%;
-    color: rgb(142, 253, 142);;
+    color: rgb(16, 201, 62);;
     font-family: Arial, Helvetica, sans-serif;
    }
  

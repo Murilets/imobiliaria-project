@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {devices} from '../../styles/responsive'
 export const Container = styled.input`
 height: 50px;
-padding: 8px, 15px;
+padding: 10px, 15px;
 border-radius: 3px;
 width: 100%;
 color: var(--secondary);

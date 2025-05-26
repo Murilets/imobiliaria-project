@@ -3,9 +3,11 @@ import { devices } from "../../styles/responsive";
 export const Container = styled.div`
   padding: 20px 150px;
   display: flex;
+  height: auto;
+  align-items: flex-start;
   justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
+  
+
 
   @media ${devices.tablet} {
     flex-direction: column;
@@ -16,7 +18,7 @@ export const Container = styled.div`
 export const Left = styled.div`
   position: relative;
   width: 70%;
-  left: -50px;
+  
   padding: 9px;
   
 
@@ -28,23 +30,22 @@ export const Left = styled.div`
   }
 `;
 export const Thumb = styled.div`
-  position: relative;
+position: relative;
   width: 100%;
-  max-width: 100%;
+  height: auto;
   overflow: hidden;
-  padding: 0;
-  margin: 0;
+
 
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 0;
+
   }
   .image-counter{
     position: absolute;
-    bottom: 160px;
+     top: 30px;
     right: 10px;
     background-color: rgba(0,0,0,0.6);
     color: white;
@@ -58,7 +59,7 @@ export const Thumb = styled.div`
  padding: 0;
     img{
       width: 100vw;
-      height: auto;
+      height: 250px;
       object-fit: cover;
       
     }
@@ -69,7 +70,6 @@ export const Thumb = styled.div`
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  gap: 8px;
   scrollbar-width: none;
   width: 100%;
 }
@@ -80,11 +80,16 @@ export const Thumb = styled.div`
 
 .carousel img {
   flex: 0 0 100%;
-  max-height: 200px; /* ou o tamanho que quiser */
+  max-height: 650px; /* ou o tamanho que quiser */
   scroll-snap-align: start;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 2px;
+  margin-right: 2px;
+
+  
 }
+
+
 `;
 export const Description = styled.div`
   padding: 40px 0;
@@ -181,7 +186,7 @@ export const Description = styled.div`
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  @media ${devices.tablet} {
+  @media ${devices.onlyMobile} {
     width: 100%;
     right: 0;
     padding: 10px;
@@ -226,7 +231,7 @@ export const Right = styled.div`
   width: 30%;
   padding: 20px;
   right: -60px;
-  bottom: 110px;
+  bottom: -50px;
   background-color: rgba(192, 190, 190, 0.29);
   border: 1px solid rgba(97, 137, 247, 0.84);
   
@@ -234,7 +239,7 @@ export const Right = styled.div`
   @media ${devices.tablet} {
     width: 100%;
     right: 0;
-    bottom: 0;
+    bottom: -20px;
   }
 `;
 export const Profile = styled.div`
@@ -270,7 +275,7 @@ export const ProfileContact = styled.div`
   h3 {
     position: relative;
     display: flex;
-    top: -12px;
+    top: auto;
     font-size: 30px;
     letter-spacing: 1px;
     font-family: "Dosis", sans-serif;
@@ -279,39 +284,33 @@ export const ProfileContact = styled.div`
     margin-bottom: 15px;
     color: var(--secondary);
   }
-  @media ${devices.tablet}{
-    height: 10px;
-    h3{
-      top: 20px;
-      
-    }
+  @media ${devices.onlyMobile}{
+    
   }
 `;
 export const ProfileFormContact = styled.div`
-  h3,
-  p {
-    margin-bottom: 15px;
-    color: var(--secondary);
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-  }
+
 
   @media ${devices.tablet} {
-    margin-top: 60px;
+    height: auto;
+    margin-top: auto;
+
+    form{
+      margin-top: 18px;
+    }
   
   }
+
 `;
 export const Arrow = styled.div`
   position: absolute;
-  top: 43%;
+  top: 27%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.73);
+  background-color: rgba(73, 72, 72, 0.6);
   color: white;
   border-radius: 20%;
-  width: 80px;
-  height: 87px;
+  width: 60px;
+  height: 98px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -320,7 +319,9 @@ export const Arrow = styled.div`
   z-index: 10;
 
   &.Left {
-    left: -6px;
+    width: 50px;
+    height: 90px;
+    left: -46px;
 
     @media ${devices.tablet} {
       left: 7px;
@@ -334,7 +335,9 @@ export const Arrow = styled.div`
   }
 
   &.Right {
-    right: -9px;
+     width: 50px;
+    height: 90px;
+    right: -46px;
 
     @media ${devices.tablet} {
       right: -15px;

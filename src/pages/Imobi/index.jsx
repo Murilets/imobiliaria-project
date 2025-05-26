@@ -21,25 +21,24 @@ import TopBanner from "../../components/TopBanner";
 import WhatsAppButton from "../../components/WhatsAppButton";
 
 const Imobi = () => {
-  const carouselRef = useRef(null);
-  const scrollToNext = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({
-        left: carouselRef.current.offsetWidth,
-        behavior: "smooth",
-      });
-    }
+
+const [currentImageIndex, SetCurrentImageIndex] = useState(0);
+
+  const [photos, setPhotos] = useState([]);
+
+  const handleNextImage = () => {
+    SetCurrentImageIndex((prevIndex) =>
+      prevIndex === photos.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+  const handlePrevImage = () => {
+    SetCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? photos.length - 1 : prevIndex - 1
+    );
   };
 
-  const scrollToPrev = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({
-        left: -carouselRef.current.offsetWidth,
-        behavior: "smooth",
-      });
-    }
-  };
 
+  const carouselRef = useRef(null)
   const handleScroll = () => {
     if (!carouselRef.current) return;
 
@@ -123,9 +122,7 @@ const Imobi = () => {
           <Thumb>
             {imovel.photos && imovel.photos.length > 0 && (
               <>
-                <Arrow className="Left" onClick={imagemAnterior}>
-                  <FaArrowAltCircleLeft />
-                </Arrow>
+              
 
                 <div
                   className="carousel"
@@ -145,13 +142,16 @@ const Imobi = () => {
                   {imagemAtual + 1} / {Object.values(imovel.photos[0]).length}
                 </div>
 
-                <Arrow className="Right" onClick={proximaImagem}>
-                  <FaArrowAltCircleRight />
-                </Arrow>
+            
               </>
             )}
           </Thumb>
-
+             <Arrow className="Left" onClick={imagemAnterior}>
+                  <FaArrowAltCircleLeft />
+                </Arrow>
+                    <Arrow className="Right" onClick={proximaImagem}>
+                  <FaArrowAltCircleRight />
+                </Arrow>
           <Description>
             <hr></hr>
             <h2>
@@ -182,10 +182,10 @@ const Imobi = () => {
                 alt=" "
               />
             </ProfileImg> */}
-            <ProfileDescription>
+            {/* <ProfileDescription> */}
               {/* <h3>RONEI VILELA</h3> */}
               {/* <p>Descricao do usuario</p> */}
-            </ProfileDescription>
+            {/* </ProfileDescription> */}
           </Profile>
           <ProfileContact>
             <h3>FALE AGORA CONOSCO</h3>
