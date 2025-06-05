@@ -97,7 +97,7 @@ export const AnimatedText = styled.h2`
 
   color: var(--white);
   background-color: rgba(78, 76, 76, 0.2);;
-  font-size: 43px;
+  font-size: 40px;
   font-weight: 100;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 12px;

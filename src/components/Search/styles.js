@@ -19,7 +19,7 @@ export const Container = styled.div`
     width: auto;
     margin-top: -60px;
     position: relative;
-    font-size: 34px;
+    font-size: 30px;
     left: 60px;
     font-family: Arial, Helvetica, sans-serif;
     animation: ${fadeInUp} 1s ease-out;

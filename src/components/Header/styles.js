@@ -13,6 +13,7 @@ export const Container = styled.div`
     padding: 10px 20px;
     height: 70px;
    }
+
    
 
 `;
@@ -80,7 +81,7 @@ export const MenuButton = styled.button`
     display: flex;
     margin-left: -180px;
     top: 10px;
-    color: rgb(68, 116, 248);
+    color: rgb(86, 131, 253);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
   }
@@ -113,9 +114,9 @@ export const Sidebar = styled.div`
     display: flex;
     height: 5px;
     top: -35px;
-    width: 31vh;
+    width: 27vh;
     color: black;
-    background-color :rgb(61, 60, 60);
+    background-color :rgba(204, 203, 203, 0.54);
   }
    p{
     display: flex;
@@ -147,6 +148,26 @@ export const Menu = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+     .info-container {
+       display: flex;
+       gap: 20px; /* espaçamento entre os textos */
+       
+       .info-group{
+         display: flex;
+        flex-direction: center;
+        gap: 15px; /* espaço entre cada linha */
+        user-select: none;
+       }
+    }
+    p{
+     font-size: clamp(10px, 2vw, 15px);
+        background-color: rgba(187, 187, 187, 0.03);
+        color: rgb(137, 137, 138);
+        text-align: left;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+     }
     li{
       position: relative;
       border: 1px solid var(--gray );
@@ -161,23 +182,14 @@ export const Menu = styled.div`
         background-color: var(--alt-color);
         cursor: pointer;
        }
-    }
-    p{
-      position: absolute;
-      width: 20%;
-      height: auto;
-      font-size: clamp(17px, 5vw, 15px);
-      display: flex;
-      left: 1200px;
-      background-color: rgba(187, 187, 187, 0.03);
-      color:  rgb(137, 137, 138);
-      bottom: 880px;
-      text-align: left;
-     
-      max-width: 100%;
-      font-family: Arial, Helvetica, sans-serif;
-     }
+      }
 
+    @media ${devices.tablet} {
+    .info-container {
+      display: none;
+    }
+  }
+}
     /* li.whatsapp{
       border: none;
 
@@ -199,29 +211,6 @@ export const Menu = styled.div`
     } */
 
     //esconde o menu no mobile
-    @media ${devices.tablet}{
-      display: flex;
-      position: relative;    
-    }
-    
-
-      li{
-        width: 100%;
-        text-align: center;
-     
-      }
-    }
-        
-
-      li{
-        flex-direction: column;
-        padding: 5px;
-       
-        span{
-          font-size: 3rem;;
-        
-        }
-      }
 
     
 `;

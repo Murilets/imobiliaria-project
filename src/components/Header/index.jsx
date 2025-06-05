@@ -35,7 +35,6 @@ const Header = () => {
         <Link to="/">
           <img src={LogoImg} alt="" />
         </Link>
-    
       </Logo>
 
       {/*Overlay para escurecer o fundo quando abre o menu hamburguer */}
@@ -75,11 +74,8 @@ const Header = () => {
         </CloseIcon>
         <ul>
           <li>
-            
-             <span></span> 
-            <Link to="/Login">
-              {/* <p>Login/Cadastrar</p> */}
-            </Link>
+            <span></span>
+            <Link to="/Login">{/* <p>Login/Cadastrar</p> */}</Link>
           </li>
           <li className="whatsapp">
             <a
@@ -88,8 +84,8 @@ const Header = () => {
               rel="noopener noreferrer"
             >
               <p>
-                
-                <FaWhatsapp style={{color: " rgb(50, 207, 44)"}}></FaWhatsapp> (17) 99765-1100
+                <FaWhatsapp style={{ color: " rgb(50, 207, 44)" }}></FaWhatsapp>{" "}
+                (17) 99765-1100
               </p>{" "}
             </a>{" "}
           </li>
@@ -106,17 +102,16 @@ const Header = () => {
             </a>
             </li>            */}
 
-          <p style={{ right: "167px" }}>
-            R. Vinte e Um de Abril, 363 - Centro, Catanduva - SP, 15801-170,
-            Brasil
-          </p>
-          <p style={{ left: "790px", top: "35px" }}>
-          Funcionamento de Segunda á Sexta
-          </p>
-          <p style={{ left: "790px", top:"55px" }}>
-          Dás 8h ás 17h
-          </p>
-
+          <div className="info-container">
+             <div className="info-group">
+            <p>
+              R. Vinte e Um de Abril, 363 - Centro, Catanduva - SP, 15801-170,
+              Brasil.
+            </p>
+            <p>Funcionamento de Segunda à Sexta</p>
+            <p>Das 8h às 17h</p>
+            </div>
+            </div>
           {/* <p  style={{top: '10px', right: '220px', textDecorationLine:'underline', color: 'rgb(9, 74, 253)'}}> */}
           {/* <a href='https://wa.me/5517997651100' target='_blank' rel= "noopener noreferrer" style={{textDecoration:'none', color: 'rgb(9, 74, 253)'}}>
                       <FaWhatsapp style={{marginRight: '7px', color: 'green', fontSize: '15px' }} />

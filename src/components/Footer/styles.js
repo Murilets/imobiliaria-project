@@ -214,24 +214,21 @@ height: 220px;
 
 export const Copy  = styled.div`
     display: flex;
-    justify-content: space-between;
+   
     align-items: center;
-    padding: 40px 125px;
-    size: 30px;
+    padding: 15px 12px;
+    font-size: 20px;
     border-top: 3px solid rgb(0, 0, 0);
 
-    .endereco{
-      display: flex;
-      position: absolute;
-      size: 50px;
-    }
     ul{
       display: flex;
       align-items: center;
       right: 30px;
       li{
+     display: flex;
+     
         span{
-          margin-left: 20px;
+          margin-left: 60px;
           cursor: pointer;
           transition: color 0.3;
         }
