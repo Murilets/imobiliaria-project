@@ -112,9 +112,17 @@ export const AnimatedText = styled.h2`
   word-wrap: normal ;
   animation: ${typingEffect} 2s steps(90) 0s forwards;
 
-
-//responsividade (talvez nao esteja funcioanndo)
-
+@media ${devices.laptop}{
+ position: relative;
+  right: -50px;
+  width: 100px;
+  height: 100%;
+  font-size: 25px;
+  bottom: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}
 
 @media ${devices.tablet}{
   position: relative;

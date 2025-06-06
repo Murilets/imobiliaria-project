@@ -40,6 +40,9 @@ export const Container = styled.div`
     }
   } */
 
+    @media ${devices.laptop}{
+      width: 100%;
+    }
   @media ${devices.tablet} {
     width: 100%;
     padding: 20px;

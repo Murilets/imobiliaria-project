@@ -16,7 +16,10 @@ export const Container = styled.div`
     transform: scale(1.05);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   }
-
+  
+ @media ${devices.laptop}{
+      width: 100%;
+    }
   @media ${devices.tablet} {
     width: 100%;
     bottom: 200px;

@@ -9,13 +9,16 @@ export const Container = styled.div`
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background-color: var(--white);
 
-   @media ${devices.tablet}{
+  @media ${devices.tablet} {
     padding: 10px 20px;
     height: 70px;
-   }
-
+  }
+  @media ${devices.laptop} {
+    padding: 1px;
+    margin-left: 10px;
+    height: 70px;
    
-
+  }
 `;
 
 export const Logo = styled.div`
@@ -26,15 +29,13 @@ export const Logo = styled.div`
     width: 160px;
     height: auto;
   }
-  p{
+  p {
     display: none;
   }
-  
-  @media ${devices.tablet}{
 
-    img{
+  @media ${devices.tablet} {
+    img {
       width: 120px;
-     
     }
     display: flex;
     flex-direction: column;
@@ -43,10 +44,15 @@ export const Logo = styled.div`
     margin-right: 190px;
     margin-bottom: 55px;
   }
-  p{
+  p {
     display: none;
   }
 
+  @media ${devices.laptop} {
+    img {
+      width: 120px;
+    }
+  }
 `;
 
 //botao do menu hamburguer
@@ -62,21 +68,21 @@ export const MenuButton = styled.button`
   font-size: 2rem;
   cursor: pointer;
   z-index: 1000;
-  
-@media ${devices.tablet}{
-  visibility: visible;
-}
+
+  @media ${devices.tablet} {
+    visibility: visible;
+  }
 `;
 
- export const CloseIcon = styled.div`
- display: flex;
- position: absolute;
- top: 4px;
- right: 25px;
- font-size: 28px;
- cursor: pointer;
- color: var(--black);
-  h3{
+export const CloseIcon = styled.div`
+  display: flex;
+  position: absolute;
+  top: 4px;
+  right: 25px;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--black);
+  h3 {
     position: fixed;
     display: flex;
     margin-left: -180px;
@@ -89,9 +95,7 @@ export const MenuButton = styled.button`
   &:hover {
     color: var(--alt-color);
   }
-
- 
- `;
+`;
 //sidebar para dispositivos moveis
 export const Sidebar = styled.div`
   position: fixed; /* CORRIGIDO */
@@ -108,89 +112,93 @@ export const Sidebar = styled.div`
   padding-top: 70px;
   z-index: 1000;
 
-@media ${devices.tablet}{
-  span{
-    position: relative;
-    display: flex;
-    height: 5px;
-    top: -35px;
-    width: 27vh;
-    color: black;
-    background-color :rgba(204, 203, 203, 0.54);
+  @media ${devices.tablet} {
+    span {
+      position: relative;
+      display: flex;
+      height: 5px;
+      top: -35px;
+      width: 27vh;
+      color: black;
+      background-color: rgba(204, 203, 203, 0.54);
+    }
+    p {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      top: 5px;
+      height: 65px;
+      width: 100%;
+      color: rgb(16, 201, 62);
+      font-family: Arial, Helvetica, sans-serif;
+    }
   }
-   p{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 5px;
-     height: 65px;
-     width: 100%;
-    color: rgb(16, 201, 62);;
-    font-family: Arial, Helvetica, sans-serif;
-   }
- 
-
-}
 `;
 
 export const Overlay = styled.div`
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: rgba(34, 34, 34, 0.2);
-z-index: 999;
-
-`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(34, 34, 34, 0.2);
+  z-index: 999;
+`;
 export const Menu = styled.div`
   ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-     .info-container {
-       display: flex;
-       gap: 20px; /* espaçamento entre os textos */
-       
-       .info-group{
-         display: flex;
+    .info-container {
+      display: flex;
+      gap: 20px; /* espaçamento entre os textos */
+
+      .info-group {
+        display: flex;
         flex-direction: center;
         gap: 15px; /* espaço entre cada linha */
         user-select: none;
-       }
+      }
     }
-    p{
-     font-size: clamp(10px, 2vw, 15px);
-        background-color: rgba(187, 187, 187, 0.03);
-        color: rgb(137, 137, 138);
-        text-align: left;
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 0;
-     }
-    li{
+    p {
+      font-size: clamp(10px, 2vw, 15px);
+      background-color: rgba(187, 187, 187, 0.03);
+      color: rgb(137, 137, 138);
+      text-align: left;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+    }
+    li {
       position: relative;
-      border: 1px solid var(--gray );
+      border: 1px solid var(--gray);
       border-radius: 10px;
       padding: 10px;
       transition: background-color 0.3s ease;
-      span{
-       font-size: 1.2rem;
-       font-weight: 300;
+      span {
+        font-size: 1.2rem;
+        font-weight: 300;
       }
-       &:hover{
+      &:hover {
         background-color: var(--alt-color);
         cursor: pointer;
-       }
       }
+    }
+    @media ${devices.laptop} {
+      .info-container {
+    
+        display: flex;
+        font-size: 1px;
+      }
+    }
 
     @media ${devices.tablet} {
-    .info-container {
-      display: none;
+      .info-container {
+        display: none;
+      }
     }
   }
-}
-    /* li.whatsapp{
+  /* li.whatsapp{
       border: none;
 
       &:hover{
@@ -210,7 +218,5 @@ export const Menu = styled.div`
       z-index: 2;
     } */
 
-    //esconde o menu no mobile
-
-    
+  //esconde o menu no mobile
 `;

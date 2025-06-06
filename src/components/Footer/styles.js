@@ -239,7 +239,26 @@ export const Copy  = styled.div`
       }
     }
 
+ @media ${devices.laptop}{
+      width: 100%;
 
+       ul{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap ;
+        flex-direction: right;
+        justify-content: center;
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        bottom: -5px;
+        gap: 13px;
+        text-decoration-line: underline;
+        color:  rgb(9, 74, 253);
+      }
+
+    }
 
     @media ${devices.mobileM}{
       padding: 20px 20px;

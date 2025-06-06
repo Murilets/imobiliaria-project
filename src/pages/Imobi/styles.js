@@ -7,7 +7,9 @@ export const Container = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   
-
+@media ${devices.laptop}{
+  width: 100%;
+}
 
   @media ${devices.tablet} {
     flex-direction: column;
@@ -18,10 +20,14 @@ export const Container = styled.div`
 export const Left = styled.div`
   position: relative;
   width: 70%;
-  
   padding: 9px;
   
-
+@media ${devices.laptop}{
+      width: 100%;
+    left: -60px;
+    padding: 0;
+    object-fit: cover;
+}
   @media ${devices.tablet} {
     width: 100vw;
     left: 0;
@@ -54,6 +60,16 @@ position: relative;
     font-size: 14px;
   }
 
+  @media ${devices.laptop}{
+    margin: 0 auto;
+ padding: 0;
+    img{
+      width: 100vw;
+      height: 250px;
+      object-fit: cover;
+      
+    }
+  }
   @media ${devices.tablet} {
  margin: 0 auto;
  padding: 0;
@@ -185,6 +201,71 @@ export const Description = styled.div`
     color: black;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
+@media ${devices.laptop}{
+  width: 100%;
+    right: 0;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    
+    hr{
+      display: none;
+    }
+    h2{
+      font-size: 25px;
+      top: -6px;
+    }
+    p{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px;
+    }
+    .price{
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .price::before {
+      display: none;
+    }
+    .descricao {
+    display: flex;
+    height: 47px;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 20px;
+    right: -60px;
+    color: black;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .linebetween {
+    position: relative;
+    display: flex;
+    color: rgba(0, 0, 0, 0);
+    background-color: rgb(32, 22, 173);
+    top: 107px;
+    width: 130px;
+    height: 3px;
+    left: -100px;
+    border-radius: 10px solid;
+  }
+  .linebetween2 {
+    position: relative;
+    display: flex;
+    color: rgba(0, 0, 0, 0);
+    background-color: rgb(163, 163, 167);
+    top: 104px;
+    width: 350px;
+    height: 3px;
+    left: 18px;
+    border-radius: 10px solid;
+  }
+  }
 
   @media ${devices.onlyMobile} {
     width: 100%;
@@ -228,7 +309,12 @@ export const Right = styled.div`
   background-color: rgba(192, 190, 190, 0.29);
   border: 1px solid rgba(97, 137, 247, 0.84);
   
-
+ @media ${devices.laptop}{
+   position: block;
+    width: 100%;
+    right: 50px;
+    bottom: 10px;
+ }
   @media ${devices.tablet} {
     position: block;
     width: 100%;
@@ -278,7 +364,9 @@ export const ProfileContact = styled.div`
     margin-bottom: 15px;
     color: var(--secondary);
   }
-  @media ${devices.onlyMobile}{
+
+  @media ${devices.laptop}{
+    width: 100%;
     
   }
 `;
@@ -317,6 +405,15 @@ export const Arrow = styled.div`
     height: 90px;
     left: -46px;
 
+   @media ${devices.laptop} {
+      left: 7px;
+      right: -15px;
+      width: 30px;
+      height: 0;
+      top: 120px;
+      background-color: rgba(24, 23, 23, 0);
+      color: rgb(255, 254, 254);
+    }
     @media ${devices.tablet} {
       left: 7px;
       right: -15px;
@@ -332,6 +429,15 @@ export const Arrow = styled.div`
      width: 50px;
     height: 90px;
     right: -46px;
+
+    @media ${devices.laptop} {
+     right: -15px;
+      width: 60px;
+      height: 0;
+      top: 120px;
+      background-color: rgba(24, 23, 23, 0);
+      color: rgb(255, 254, 254);
+    }
 
     @media ${devices.tablet} {
       right: -15px;
